@@ -2231,15 +2231,31 @@ body.reduced-motion *::after {
 
 #screen-knowledge {
     padding: 18px 18px 92px;
-    background: url("../assets/images/background/tela_caminho.webp") center/cover no-repeat;
     position: relative;
     overflow: hidden;
+    background: #b5a57a;
+}
+
+#screen-knowledge::before {
+    content: "";
+    position: absolute;
+    inset: 0 -2px;
+    z-index: 0;
+    background: url("../assets/images/background/tela_caminho.webp") center / cover no-repeat;
+    transform: scale(1.01);
+    transform-origin: center;
+    pointer-events: none;
+}
+
+#screen-knowledge > * {
+    position: relative;
+    z-index: 1;
 }
 
 .knowledge-sprite-layer {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
 }
 
 .knowledge-sprite-button {
