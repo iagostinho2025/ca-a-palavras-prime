@@ -483,6 +483,16 @@
                 </div>
             </main>
 
+            <section class="knowledge-progress-shell" aria-label="Progresso da descoberta">
+                <div class="knowledge-progress-copy">
+                    <span>Palavras encontradas</span>
+                    <strong id="knowledge-progress-text">0/0</strong>
+                </div>
+                <div class="knowledge-progress-track" aria-hidden="true">
+                    <span id="knowledge-progress-bar"></span>
+                </div>
+            </section>
+
             <section class="game-companion" aria-live="polite">
                 <img id="game-avatar-img" src="assets/images/avatar/avatar-01.webp" alt="">
                 <div class="companion-bubble" id="game-feedback-bubble">
@@ -505,6 +515,17 @@
                     <span>&asymp;</span>
                     <strong>Limpar</strong>
                     <small id="game-clear-left">1</small>
+                </button>
+            </nav>
+
+            <nav class="knowledge-action-bar" aria-label="Ações do modo conhecimento">
+                <button class="knowledge-action-btn" id="btn-knowledge-back" type="button">
+                    <span>&larr;</span>
+                    <strong>Voltar</strong>
+                </button>
+                <button class="knowledge-action-btn" id="btn-knowledge-settings" type="button">
+                    <span>&#9881;</span>
+                    <strong>Ajustes</strong>
                 </button>
             </nav>
         </div>

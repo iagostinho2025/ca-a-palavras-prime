@@ -34,6 +34,9 @@ const App = {
         lesson: null,
         words: []
     },
+    knowledgeAssistTimer: null,
+    knowledgeAssistCell: null,
+    knowledgeAssistArmedAt: 0,
 
     init() {
         this.loadSettings();
@@ -93,6 +96,11 @@ const App = {
         document.getElementById('btn-game-hint').onclick = () => this.useHint();
         document.getElementById('btn-game-area').onclick = () => this.highlightWordArea();
         document.getElementById('btn-game-clear').onclick = () => this.cleanNoiseLetters();
+        document.getElementById('btn-knowledge-back').onclick = () => {
+            if (this.game) this.game.stopTimer();
+            this.showScreen('knowledge');
+        };
+        document.getElementById('btn-knowledge-settings').onclick = () => this.openGameSettings();
         document.getElementById('btn-game-sound').onclick = () => this.toggleGameSound();
         document.getElementById('setting-sound').onchange = (event) => this.updateSetting('sound', event.target.checked);
         document.getElementById('setting-haptics').onchange = (event) => this.updateSetting('haptics', event.target.checked);

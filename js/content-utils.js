@@ -1,6 +1,7 @@
 export function repairMojibake(value) {
     const text = String(value ?? '');
-    if (!/[Ãâð]/.test(text)) return text;
+    const mojibakePattern = /(?:\u00C3[\u0080-\u00BF]|\u00C2[\u0080-\u00BF]|\u00E2[\u0080-\u00BF]{1,2}|\u00F0[\u0080-\u00BF]{2,3})/;
+    if (!mojibakePattern.test(text)) return text;
     try {
         const bytes = Uint8Array.from([...text].map((char) => char.charCodeAt(0) & 0xFF));
         return new TextDecoder('utf-8').decode(bytes);

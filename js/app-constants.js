@@ -18,6 +18,57 @@ export const WORD_COLORS = [
     { start: '#88d8c8', end: '#3f9485', glow: 'rgba(63, 148, 133, 0.17)' }
 ];
 
+export const KNOWLEDGE_WORD_COLORS = {
+    biblical: [
+        { start: '#7fdcff', end: '#3498db', glow: 'rgba(52, 152, 219, 0.24)' },
+        { start: '#ff9ac1', end: '#d94f8a', glow: 'rgba(217, 79, 138, 0.22)' },
+        { start: '#9d8cff', end: '#6d5bd8', glow: 'rgba(109, 91, 216, 0.22)' },
+        { start: '#7ff0b3', end: '#2dbb73', glow: 'rgba(45, 187, 115, 0.22)' },
+        { start: '#ff9f7a', end: '#e56a3e', glow: 'rgba(229, 106, 62, 0.22)' },
+        { start: '#84e6e8', end: '#28a7b0', glow: 'rgba(40, 167, 176, 0.22)' },
+        { start: '#c29bff', end: '#8d62db', glow: 'rgba(141, 98, 219, 0.22)' },
+        { start: '#ff7f96', end: '#d9485f', glow: 'rgba(217, 72, 95, 0.22)' },
+        { start: '#89e889', end: '#46b546', glow: 'rgba(70, 181, 70, 0.22)' },
+        { start: '#8bc5ff', end: '#4a7fe0', glow: 'rgba(74, 127, 224, 0.22)' }
+    ],
+    civilizations: [
+        { start: '#8fd3ef', end: '#3e8bb8', glow: 'rgba(62, 139, 184, 0.24)' },
+        { start: '#e4bc72', end: '#b88231', glow: 'rgba(184, 130, 49, 0.22)' },
+        { start: '#d98a6b', end: '#b45e3e', glow: 'rgba(180, 94, 62, 0.22)' },
+        { start: '#b7c77b', end: '#7b8e44', glow: 'rgba(123, 142, 68, 0.22)' },
+        { start: '#c1a0e8', end: '#8866b4', glow: 'rgba(136, 102, 180, 0.2)' },
+        { start: '#8bd0c7', end: '#3e978a', glow: 'rgba(62, 151, 138, 0.22)' },
+        { start: '#e6c389', end: '#bf8d41', glow: 'rgba(191, 141, 65, 0.2)' },
+        { start: '#f0a07f', end: '#cb6d47', glow: 'rgba(203, 109, 71, 0.22)' },
+        { start: '#a6c3e8', end: '#5b7fad', glow: 'rgba(91, 127, 173, 0.2)' },
+        { start: '#d7d08a', end: '#9c9242', glow: 'rgba(156, 146, 66, 0.2)' }
+    ],
+    curiosities: [
+        { start: '#76e7f7', end: '#23a9c2', glow: 'rgba(35, 169, 194, 0.24)' },
+        { start: '#8cf0bf', end: '#2ebd7d', glow: 'rgba(46, 189, 125, 0.22)' },
+        { start: '#c9f36f', end: '#7fbe2f', glow: 'rgba(127, 190, 47, 0.22)' },
+        { start: '#ffb39e', end: '#e67c63', glow: 'rgba(230, 124, 99, 0.2)' },
+        { start: '#a99aff', end: '#6e63de', glow: 'rgba(110, 99, 222, 0.22)' },
+        { start: '#67d7ff', end: '#2f8fd4', glow: 'rgba(47, 143, 212, 0.22)' },
+        { start: '#9af06e', end: '#56b63a', glow: 'rgba(86, 182, 58, 0.22)' },
+        { start: '#ffe17a', end: '#d5a12c', glow: 'rgba(213, 161, 44, 0.2)' },
+        { start: '#8debe0', end: '#2fae9d', glow: 'rgba(47, 174, 157, 0.22)' },
+        { start: '#d59bff', end: '#965ce0', glow: 'rgba(150, 92, 224, 0.22)' }
+    ],
+    wonders: [
+        { start: '#9be5d0', end: '#3a9b81', glow: 'rgba(58, 155, 129, 0.22)' },
+        { start: '#efd88b', end: '#c29a3c', glow: 'rgba(194, 154, 60, 0.22)' },
+        { start: '#8fd0e8', end: '#4b8faf', glow: 'rgba(75, 143, 175, 0.22)' },
+        { start: '#d9b7f4', end: '#9a69c7', glow: 'rgba(154, 105, 199, 0.2)' },
+        { start: '#b8db8d', end: '#749a4f', glow: 'rgba(116, 154, 79, 0.22)' },
+        { start: '#f1be92', end: '#cb7d4a', glow: 'rgba(203, 125, 74, 0.2)' },
+        { start: '#c6d88e', end: '#8ea249', glow: 'rgba(142, 162, 73, 0.2)' },
+        { start: '#b6d0f5', end: '#6a90cc', glow: 'rgba(106, 144, 204, 0.2)' },
+        { start: '#f5d7a0', end: '#c79a4a', glow: 'rgba(199, 154, 74, 0.2)' },
+        { start: '#8fe0da', end: '#3ba79d', glow: 'rgba(59, 167, 157, 0.22)' }
+    ]
+};
+
 export const BOARD_THEMES = [
     { id: 'auto', label: 'Autom\u00e1tico', note: 'Segue a fase', swatch: ['#8edfc7', '#6bb3d6'] },
     { id: 'tutorial', label: 'Tutorial', note: 'Claro e calmo', swatch: ['#c8f4dc', '#91d7ea'] },

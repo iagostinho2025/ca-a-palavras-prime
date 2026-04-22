@@ -1057,8 +1057,10 @@ h3,
 #screen-settings {
     padding: 18px 18px 92px;
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(238, 244, 241, 0.96)),
-        url("../assets/images/background/tela_ajustes.webp") center / cover no-repeat;
+        radial-gradient(circle at 82% 78%, rgba(255, 201, 122, 0.34), transparent 24%),
+        radial-gradient(circle at 18% 12%, rgba(112, 196, 255, 0.22), transparent 26%),
+        linear-gradient(180deg, rgba(94, 189, 241, 0.92), rgba(241, 163, 112, 0.9)),
+        url("../assets/images/background/tela_inicial.webp") center / cover no-repeat;
 }
 
 .settings-shell {
@@ -1083,20 +1085,22 @@ h3,
 }
 
 .settings-topbar span {
-    color: #157360;
+    color: #fff3db;
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 0;
     text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(87, 56, 23, 0.2);
 }
 
 .settings-topbar strong {
     margin-top: 2px;
-    color: var(--ink);
+    color: #ffffff;
     font-family: "Poppins", "Inter", sans-serif;
     font-size: 24px;
     font-weight: 900;
     line-height: 1;
+    text-shadow: 0 2px 4px rgba(90, 63, 33, 0.22);
 }
 
 .settings-hero {
@@ -1109,9 +1113,9 @@ h3,
     overflow: hidden;
     color: #ffffff;
     background:
-        linear-gradient(145deg, rgba(21, 115, 160, 0.88), rgba(19, 143, 112, 0.88)),
+        linear-gradient(145deg, rgba(92, 186, 239, 0.9), rgba(255, 153, 63, 0.9)),
         url("../assets/images/background/tela_inicial.webp") center 32% / cover no-repeat;
-    box-shadow: 0 18px 34px rgba(30, 96, 112, 0.22);
+    box-shadow: 0 18px 34px rgba(160, 105, 46, 0.24);
 }
 
 .settings-hero::after {
@@ -1128,8 +1132,8 @@ h3,
 
 .settings-back {
     background: rgba(255, 255, 255, 0.92);
-    color: #175c67;
-    box-shadow: 0 10px 18px rgba(19, 72, 84, 0.18);
+    color: #2e84ba;
+    box-shadow: 0 10px 18px rgba(160, 105, 46, 0.18);
 }
 
 .settings-hero span,
@@ -1167,28 +1171,30 @@ h3,
 }
 
 .settings-section-title span {
-    color: #157360;
+    color: #fff3db;
+    text-shadow: 0 1px 2px rgba(87, 56, 23, 0.2);
 }
 
 .settings-section-title h3 {
     margin-top: 3px;
-    color: var(--ink);
+    color: #ffffff;
     font-size: 20px;
     font-weight: 900;
+    text-shadow: 0 2px 4px rgba(90, 63, 33, 0.22);
 }
 
 .setting-card {
     min-height: 82px;
     margin-bottom: 10px;
     padding: 14px;
-    border: 1px solid rgba(117, 148, 140, 0.22);
+    border: 1px solid rgba(255, 190, 124, 0.22);
     border-radius: 14px;
     display: grid;
     grid-template-columns: 50px 1fr auto;
     gap: 12px;
     align-items: center;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 10px 22px rgba(44, 86, 82, 0.1);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 12px 24px rgba(149, 99, 45, 0.14);
 }
 
 .setting-card-stack {
@@ -1295,7 +1301,7 @@ h3,
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px;
-    background: #eaf1ee;
+    background: #edf4fb;
 }
 
 .segmented-control button {
@@ -1309,8 +1315,8 @@ h3,
 
 .segmented-control button.selected {
     background: #ffffff;
-    color: #16745f;
-    box-shadow: 0 6px 12px rgba(44, 86, 82, 0.11);
+    color: #f47a22;
+    box-shadow: 0 6px 12px rgba(149, 99, 45, 0.12);
 }
 
 .settings-summary {
@@ -1327,7 +1333,7 @@ h3,
     display: grid;
     place-items: center;
     background: #ffffff;
-    box-shadow: 0 10px 22px rgba(44, 86, 82, 0.1);
+    box-shadow: 0 10px 22px rgba(149, 99, 45, 0.12);
 }
 
 .settings-summary span {
@@ -1338,7 +1344,7 @@ h3,
 }
 
 .settings-summary strong {
-    color: var(--primary-dark);
+    color: #f47a22;
     font-family: "Poppins", "Inter", sans-serif;
     font-size: 20px;
     font-weight: 900;
@@ -1358,7 +1364,7 @@ h3,
     background: #ffffff;
     color: var(--ink);
     cursor: pointer;
-    box-shadow: 0 10px 22px rgba(44, 86, 82, 0.1);
+    box-shadow: 0 10px 22px rgba(149, 99, 45, 0.12);
 }
 
 .settings-action span {
@@ -1368,8 +1374,8 @@ h3,
 .settings-action strong {
     padding: 5px 8px;
     border-radius: 999px;
-    background: #eaf7ef;
-    color: #16864f;
+    background: #eef6ff;
+    color: #2f78a5;
     font-size: 11px;
     font-weight: 900;
     white-space: nowrap;
@@ -2062,8 +2068,10 @@ body.reduced-motion *::after {
 #screen-achievements {
     padding: 18px 18px 94px;
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(238, 244, 241, 0.96)),
-        var(--bg);
+        radial-gradient(circle at 82% 78%, rgba(255, 201, 122, 0.34), transparent 24%),
+        radial-gradient(circle at 18% 12%, rgba(112, 196, 255, 0.22), transparent 26%),
+        linear-gradient(180deg, rgba(94, 189, 241, 0.92), rgba(241, 163, 112, 0.9)),
+        url("../assets/images/background/tela_inicial.webp") center / cover no-repeat;
 }
 
 .achievements-shell {
@@ -2077,10 +2085,10 @@ body.reduced-motion *::after {
     display: flex;
     align-items: end;
     background:
-        linear-gradient(135deg, rgba(25, 124, 107, 0.92), rgba(47, 120, 165, 0.82)),
-        url("../assets/images/background/tela_ajustes.webp") center / cover no-repeat;
+        linear-gradient(135deg, rgba(92, 186, 239, 0.92), rgba(255, 153, 63, 0.88)),
+        url("../assets/images/background/tela_inicial.webp") center / cover no-repeat;
     color: #ffffff;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 16px 30px rgba(149, 99, 45, 0.18);
     overflow: hidden;
 }
 
@@ -2118,11 +2126,11 @@ body.reduced-motion *::after {
     min-width: 0;
     min-height: 64px;
     padding: 10px 6px;
-    border: 1px solid var(--soft-line);
+    border: 1px solid rgba(255, 190, 124, 0.2);
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.84);
+    background: rgba(255, 255, 255, 0.9);
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 10px 22px rgba(149, 99, 45, 0.12);
 }
 
 .achievements-stats span {
@@ -2136,7 +2144,7 @@ body.reduced-motion *::after {
 .achievements-stats strong {
     display: block;
     margin-top: 3px;
-    color: var(--primary-dark);
+    color: #f47a22;
     font-family: "Poppins", "Inter", sans-serif;
     font-size: 22px;
     font-weight: 900;
@@ -2150,14 +2158,14 @@ body.reduced-motion *::after {
 .achievement-card {
     min-height: 86px;
     padding: 12px;
-    border: 1px solid rgba(117, 148, 140, 0.22);
+    border: 1px solid rgba(255, 190, 124, 0.22);
     border-radius: 8px;
     display: grid;
     grid-template-columns: 48px minmax(0, 1fr) auto;
     gap: 10px;
     align-items: center;
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: var(--shadow-sm);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 22px rgba(149, 99, 45, 0.12);
 }
 
 .achievement-card.unlocked {
@@ -2172,8 +2180,8 @@ body.reduced-motion *::after {
     border-radius: 8px;
     display: grid;
     place-items: center;
-    background: linear-gradient(180deg, #eef4f1, #dce8e3);
-    color: var(--primary-dark);
+    background: linear-gradient(180deg, #eff6ff, #d9ebfb);
+    color: #2f78a5;
     font-family: "Poppins", "Inter", sans-serif;
     font-size: 14px;
     font-weight: 900;
@@ -2213,7 +2221,7 @@ body.reduced-motion *::after {
     height: 7px;
     margin-top: 8px;
     border-radius: 999px;
-    background: #e5eeea;
+    background: #edf2f7;
     overflow: hidden;
 }
 
@@ -2221,11 +2229,11 @@ body.reduced-motion *::after {
     height: 100%;
     display: block;
     border-radius: inherit;
-    background: linear-gradient(90deg, #197c6b, #2f78a5);
+    background: linear-gradient(90deg, #5cbcf0, #f47a22);
 }
 
 .achievement-card small {
-    color: var(--primary-dark);
+    color: #2f78a5;
     white-space: nowrap;
 }
 
@@ -2282,7 +2290,7 @@ body.reduced-motion *::after {
 }
 
 .knowledge-sprite-button.is-selected {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.94);
+    box-shadow: none;
     border-radius: 14px;
 }
 
@@ -2304,8 +2312,8 @@ body.reduced-motion *::after {
 }
 
 .sprite-civilizations {
-    top: 227px;
-    right: 174px;
+    top: 208px;
+    right: 8px;
 }
 
 .sprite-civilizations .knowledge-sprite {
@@ -2313,8 +2321,8 @@ body.reduced-motion *::after {
 }
 
 .sprite-curiosities {
-    bottom: 507px;
-    left: 265px;
+    top: 392px;
+    right: 30px;
 }
 
 .sprite-curiosities .knowledge-sprite {
@@ -2322,8 +2330,8 @@ body.reduced-motion *::after {
 }
 
 .sprite-wonders {
-    bottom: 104px;
-    right: 18px;
+    top: 448px;
+    left: 34px;
 }
 
 .knowledge-shell {
@@ -2748,50 +2756,1221 @@ body.reduced-motion *::after {
     display: none;
 }
 
+#screen-game.is-knowledge-mode {
+    --knowledge-page-a: rgba(46, 124, 116, 0.18);
+    --knowledge-page-b: rgba(243, 247, 241, 0.98);
+    --knowledge-page-c: rgba(255, 248, 232, 0.76);
+    --knowledge-page-d: rgba(234, 244, 236, 0.92);
+    --knowledge-panel-a: rgba(255, 255, 255, 0.99);
+    --knowledge-panel-b: rgba(241, 247, 239, 0.96);
+    --knowledge-panel-border: rgba(117, 148, 140, 0.16);
+    --knowledge-panel-glow: rgba(44, 86, 82, 0.08);
+    --knowledge-heading: #1a312b;
+    --knowledge-body: #3f514a;
+    --knowledge-kicker: var(--board-accent);
+    --knowledge-divider: rgba(117, 148, 140, 0.16);
+    --knowledge-button-bg-a: #fffdf7;
+    --knowledge-button-bg-b: #ffffff;
+    --knowledge-button-icon-a: #8cc9e8;
+    --knowledge-button-icon-b: #3f9485;
+    --knowledge-button-text: #30443d;
+    --board-panel-a: rgba(255, 255, 255, 0.98);
+    --board-panel-b: rgba(241, 247, 239, 0.96);
+    --board-accent: #4fa99a;
+    --board-accent-soft: rgba(79, 169, 154, 0.16);
+    --board-glow: rgba(44, 86, 82, 0.12);
+    --word-card-a: rgba(255, 255, 255, 0.95);
+    --word-card-b: rgba(241, 247, 239, 0.9);
+    --cell-a: #ffffff;
+    --cell-b: #f2f8f4;
+    --cell-c: #e6f1eb;
+    --cell-border: rgba(117, 148, 140, 0.28);
+    --cell-shadow: rgba(44, 86, 82, 0.08);
+    --selected-a: #d6f0d2;
+    --selected-b: #9dd8ac;
+    --selected-c: #5ea982;
+    --knowledge-board-frame: #d4a74d;
+    --knowledge-board-base-a: #edcd88;
+    --knowledge-board-base-b: #dfb668;
+    --knowledge-board-base-shadow: rgba(183, 130, 42, 0.12);
+    --knowledge-cell-border: rgba(208, 169, 101, 0.82);
+    --knowledge-cell-bg-a: #fff8ea;
+    --knowledge-cell-bg-b: #f7ead0;
+    --knowledge-cell-text: #5d3a1f;
+    --knowledge-cell-shadow-a: rgba(196, 153, 85, 0.34);
+    --knowledge-cell-shadow-b: rgba(171, 125, 55, 0.08);
+    --knowledge-select-border: rgba(228, 167, 46, 0.96);
+    --knowledge-select-bg-a: #ffe95a;
+    --knowledge-select-bg-b: #ffbe1f;
+    --knowledge-select-text: #4c2c10;
+    --knowledge-select-ring: rgba(238, 183, 58, 0.32);
+    --knowledge-select-shadow: rgba(209, 151, 29, 0.24);
+    gap: 10px;
+    background:
+        linear-gradient(180deg, var(--knowledge-page-a), var(--knowledge-page-b) 34%),
+        linear-gradient(180deg, var(--knowledge-page-c), var(--knowledge-page-d));
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] {
+    --knowledge-page-a: rgba(125, 101, 49, 0.2);
+    --knowledge-page-b: rgba(248, 242, 221, 0.98);
+    --knowledge-page-c: rgba(199, 173, 117, 0.28);
+    --knowledge-page-d: rgba(243, 235, 212, 0.94);
+    --knowledge-panel-a: rgba(255, 250, 238, 0.99);
+    --knowledge-panel-b: rgba(246, 236, 214, 0.96);
+    --knowledge-panel-border: rgba(154, 122, 69, 0.2);
+    --knowledge-panel-glow: rgba(129, 89, 42, 0.12);
+    --knowledge-heading: #3e2a17;
+    --knowledge-body: #5e4a32;
+    --knowledge-kicker: #8a6b33;
+    --knowledge-divider: rgba(154, 122, 69, 0.18);
+    --knowledge-button-bg-a: #f5f0e4;
+    --knowledge-button-bg-b: #e5dcc7;
+    --knowledge-button-icon-a: #7f9d72;
+    --knowledge-button-icon-b: #4f6f46;
+    --knowledge-button-text: #3f3426;
+    --board-panel-a: rgba(255, 251, 241, 0.98);
+    --board-panel-b: rgba(247, 236, 210, 0.95);
+    --board-accent: #b2853d;
+    --board-accent-soft: rgba(178, 133, 61, 0.18);
+    --board-glow: rgba(129, 89, 42, 0.14);
+    --word-card-a: rgba(255, 250, 238, 0.98);
+    --word-card-b: rgba(247, 236, 214, 0.92);
+    --cell-a: #fffdf7;
+    --cell-b: #f8edd9;
+    --cell-c: #efdec0;
+    --cell-border: rgba(163, 123, 58, 0.28);
+    --cell-shadow: rgba(129, 89, 42, 0.1);
+    --selected-a: #f6df9d;
+    --selected-b: #ddb76a;
+    --selected-c: #aa7f3b;
+    --knowledge-board-frame: #d4a74d;
+    --knowledge-board-base-a: #edcd88;
+    --knowledge-board-base-b: #dfb668;
+    --knowledge-board-base-shadow: rgba(183, 130, 42, 0.12);
+    --knowledge-cell-border: rgba(208, 169, 101, 0.82);
+    --knowledge-cell-bg-a: #fff8ea;
+    --knowledge-cell-bg-b: #f7ead0;
+    --knowledge-cell-text: #5d3a1f;
+    --knowledge-cell-shadow-a: rgba(196, 153, 85, 0.34);
+    --knowledge-cell-shadow-b: rgba(171, 125, 55, 0.08);
+    --knowledge-select-border: rgba(228, 167, 46, 0.96);
+    --knowledge-select-bg-a: #ffe95a;
+    --knowledge-select-bg-b: #ffbe1f;
+    --knowledge-select-text: #4c2c10;
+    --knowledge-select-ring: rgba(238, 183, 58, 0.32);
+    --knowledge-select-shadow: rgba(209, 151, 29, 0.24);
+    background:
+        linear-gradient(180deg, rgba(125, 101, 49, 0.18), rgba(248, 242, 221, 0.92) 32%),
+        linear-gradient(180deg, rgba(199, 173, 117, 0.18), rgba(243, 235, 212, 0.9)),
+        url("../assets/images/background/tela_biblico.webp") center top / cover no-repeat;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] {
+    --knowledge-page-a: rgba(151, 92, 53, 0.24);
+    --knowledge-page-b: rgba(246, 234, 219, 0.98);
+    --knowledge-page-c: rgba(99, 135, 160, 0.18);
+    --knowledge-page-d: rgba(239, 226, 212, 0.95);
+    --knowledge-panel-a: rgba(249, 243, 235, 0.99);
+    --knowledge-panel-b: rgba(238, 227, 214, 0.96);
+    --knowledge-panel-border: rgba(139, 101, 63, 0.22);
+    --knowledge-panel-glow: rgba(96, 74, 54, 0.11);
+    --knowledge-heading: #37291d;
+    --knowledge-body: #564538;
+    --knowledge-kicker: #9c5f33;
+    --knowledge-divider: rgba(134, 102, 73, 0.2);
+    --knowledge-button-bg-a: #f8f0e6;
+    --knowledge-button-bg-b: #ecdfd1;
+    --knowledge-button-icon-a: #6ba5c4;
+    --knowledge-button-icon-b: #3f718d;
+    --knowledge-button-text: #3e3125;
+    --board-panel-a: rgba(249, 242, 232, 0.99);
+    --board-panel-b: rgba(232, 220, 205, 0.95);
+    --board-accent: #a45e33;
+    --board-accent-soft: rgba(164, 94, 51, 0.16);
+    --board-glow: rgba(91, 74, 61, 0.14);
+    --word-card-a: rgba(248, 242, 235, 0.97);
+    --word-card-b: rgba(233, 224, 214, 0.9);
+    --cell-a: #f9f5ef;
+    --cell-b: #ede4d8;
+    --cell-c: #ddcebc;
+    --cell-border: rgba(137, 112, 85, 0.3);
+    --cell-shadow: rgba(91, 74, 61, 0.1);
+    --selected-a: #92d7f1;
+    --selected-b: #59b3db;
+    --selected-c: #2e7da4;
+    --knowledge-board-frame: #ba7a47;
+    --knowledge-board-base-a: #d9a471;
+    --knowledge-board-base-b: #bf7f49;
+    --knowledge-board-base-shadow: rgba(120, 73, 41, 0.16);
+    --knowledge-cell-border: rgba(176, 122, 78, 0.82);
+    --knowledge-cell-bg-a: #fff5ea;
+    --knowledge-cell-bg-b: #f1dfca;
+    --knowledge-cell-text: #613a1f;
+    --knowledge-cell-shadow-a: rgba(170, 116, 70, 0.3);
+    --knowledge-cell-shadow-b: rgba(113, 77, 46, 0.1);
+    --knowledge-select-border: rgba(66, 143, 185, 0.96);
+    --knowledge-select-bg-a: #97def4;
+    --knowledge-select-bg-b: #4faed9;
+    --knowledge-select-text: #163847;
+    --knowledge-select-ring: rgba(79, 164, 214, 0.32);
+    --knowledge-select-shadow: rgba(55, 121, 160, 0.24);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] {
+    --knowledge-page-a: rgba(52, 148, 155, 0.2);
+    --knowledge-page-b: rgba(240, 250, 247, 0.98);
+    --knowledge-page-c: rgba(255, 216, 102, 0.2);
+    --knowledge-page-d: rgba(232, 246, 242, 0.94);
+    --knowledge-panel-a: rgba(251, 255, 253, 0.99);
+    --knowledge-panel-b: rgba(236, 248, 243, 0.96);
+    --knowledge-panel-border: rgba(78, 151, 145, 0.18);
+    --knowledge-panel-glow: rgba(49, 126, 132, 0.1);
+    --knowledge-heading: #17373c;
+    --knowledge-body: #35595d;
+    --knowledge-kicker: #2f9aa5;
+    --knowledge-divider: rgba(78, 151, 145, 0.18);
+    --knowledge-button-bg-a: #fbfffc;
+    --knowledge-button-bg-b: #e7f6f1;
+    --knowledge-button-icon-a: #ffd54f;
+    --knowledge-button-icon-b: #f39a1f;
+    --knowledge-button-text: #23464b;
+    --board-panel-a: rgba(249, 255, 253, 0.99);
+    --board-panel-b: rgba(229, 244, 240, 0.95);
+    --board-accent: #2f9aa5;
+    --board-accent-soft: rgba(47, 154, 165, 0.16);
+    --board-glow: rgba(49, 126, 132, 0.14);
+    --word-card-a: rgba(249, 255, 253, 0.97);
+    --word-card-b: rgba(231, 246, 241, 0.9);
+    --cell-a: #ffffff;
+    --cell-b: #eef8f5;
+    --cell-c: #dcefea;
+    --cell-border: rgba(85, 153, 146, 0.28);
+    --cell-shadow: rgba(49, 126, 132, 0.09);
+    --selected-a: #ffe36f;
+    --selected-b: #ffbd38;
+    --selected-c: #ef8e11;
+    --knowledge-board-frame: #63b7b5;
+    --knowledge-board-base-a: #aee4de;
+    --knowledge-board-base-b: #72c9c0;
+    --knowledge-board-base-shadow: rgba(54, 136, 130, 0.14);
+    --knowledge-cell-border: rgba(102, 176, 168, 0.78);
+    --knowledge-cell-bg-a: #fbfffd;
+    --knowledge-cell-bg-b: #e4f5f1;
+    --knowledge-cell-text: #235158;
+    --knowledge-cell-shadow-a: rgba(88, 161, 154, 0.28);
+    --knowledge-cell-shadow-b: rgba(52, 124, 118, 0.08);
+    --knowledge-select-border: rgba(245, 167, 34, 0.96);
+    --knowledge-select-bg-a: #ffe978;
+    --knowledge-select-bg-b: #ffb72a;
+    --knowledge-select-text: #5a360e;
+    --knowledge-select-ring: rgba(255, 187, 56, 0.34);
+    --knowledge-select-shadow: rgba(231, 141, 19, 0.24);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] {
+    --knowledge-page-a: rgba(70, 120, 96, 0.18);
+    --knowledge-page-b: rgba(242, 246, 238, 0.98);
+    --knowledge-page-c: rgba(207, 173, 103, 0.18);
+    --knowledge-page-d: rgba(231, 241, 233, 0.95);
+    --knowledge-panel-a: rgba(250, 252, 247, 0.99);
+    --knowledge-panel-b: rgba(235, 243, 232, 0.96);
+    --knowledge-panel-border: rgba(88, 126, 104, 0.18);
+    --knowledge-panel-glow: rgba(58, 103, 83, 0.1);
+    --knowledge-heading: #1c332a;
+    --knowledge-body: #3a534a;
+    --knowledge-kicker: #567f5e;
+    --knowledge-divider: rgba(88, 126, 104, 0.18);
+    --knowledge-button-bg-a: #fcfdf8;
+    --knowledge-button-bg-b: #edf2e7;
+    --knowledge-button-icon-a: #d4af59;
+    --knowledge-button-icon-b: #9e7b2f;
+    --knowledge-button-text: #284139;
+    --board-panel-a: rgba(249, 252, 247, 0.99);
+    --board-panel-b: rgba(233, 241, 229, 0.95);
+    --board-accent: #567f5e;
+    --board-accent-soft: rgba(86, 127, 94, 0.16);
+    --board-glow: rgba(58, 103, 83, 0.12);
+    --word-card-a: rgba(249, 252, 247, 0.97);
+    --word-card-b: rgba(235, 243, 231, 0.9);
+    --cell-a: #fcfdf8;
+    --cell-b: #eef4eb;
+    --cell-c: #dfe8dc;
+    --cell-border: rgba(95, 132, 107, 0.28);
+    --cell-shadow: rgba(58, 103, 83, 0.09);
+    --selected-a: #ead48a;
+    --selected-b: #cfa041;
+    --selected-c: #8d6b28;
+    --knowledge-board-frame: #9da06d;
+    --knowledge-board-base-a: #c8d0ae;
+    --knowledge-board-base-b: #adb88b;
+    --knowledge-board-base-shadow: rgba(89, 108, 68, 0.14);
+    --knowledge-cell-border: rgba(137, 152, 103, 0.76);
+    --knowledge-cell-bg-a: #fbfcf3;
+    --knowledge-cell-bg-b: #e6ecd9;
+    --knowledge-cell-text: #3d4728;
+    --knowledge-cell-shadow-a: rgba(133, 147, 99, 0.28);
+    --knowledge-cell-shadow-b: rgba(87, 106, 63, 0.08);
+    --knowledge-select-border: rgba(182, 145, 59, 0.94);
+    --knowledge-select-bg-a: #efd88f;
+    --knowledge-select-bg-b: #c79b43;
+    --knowledge-select-text: #4c3919;
+    --knowledge-select-ring: rgba(214, 173, 82, 0.3);
+    --knowledge-select-shadow: rgba(157, 118, 42, 0.24);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .mission-panel,
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .grid-wrapper {
+    border-radius: 22px 22px 18px 18px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] {
+    padding-bottom: 84px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .mission-panel {
+    padding: 16px 16px 14px;
+    border: 1px solid rgba(151, 112, 57, 0.28);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 180, 124, 0.24), transparent 30%),
+        linear-gradient(180deg, #fff6e7, #f4e4c5 72%, #edd6ab);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 247, 228, 0.92),
+        inset 0 -1px 0 rgba(140, 104, 61, 0.12),
+        0 12px 24px rgba(129, 89, 42, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-story-intro-copy span,
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-inline-word.word-chip {
+    letter-spacing: 0.04em;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-story-intro {
+    gap: 12px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-story-intro img {
+    border-color: rgba(255, 243, 218, 0.92);
+    background: linear-gradient(180deg, #f8ebd0, #ead5ab);
+    box-shadow:
+        0 8px 16px rgba(129, 89, 42, 0.1),
+        inset 0 1px 0 rgba(255, 250, 240, 0.82);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-story-intro-copy span {
+    color: #9a7436;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-story-intro-copy strong {
+    color: #442b17;
+    text-shadow: 0 1px 0 rgba(255, 248, 232, 0.42);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-story-intro-copy p {
+    color: #6a5437;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-integrated-story {
+    padding-top: 14px;
+    border-top: 1px solid rgba(156, 122, 70, 0.24);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-integrated-copy p {
+    color: #5d4a33;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-progress-shell {
+    border: 1px solid rgba(151, 112, 57, 0.24);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 180, 124, 0.18), transparent 30%),
+        linear-gradient(180deg, #fff5e2, #f2dfb8 72%, #ead09f);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-progress-copy span {
+    color: #9a7436;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-progress-copy strong {
+    background: rgba(255, 248, 234, 0.94);
+    color: #4c3218;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-progress-track {
+    background: rgba(157, 121, 61, 0.22);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-progress-track span {
+    background: linear-gradient(90deg, #f3d16f, #cd9d41);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .grid-wrapper {
+    padding: 6px;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: none;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .grid-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 14px;
+    border: 1px solid #d4a74d;
+    background: linear-gradient(180deg, #edcd88, #dfb668);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 244, 214, 0.38),
+        0 8px 14px rgba(183, 130, 42, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .letter-grid {
+    max-width: 402px;
+    gap: 4px;
+    z-index: 1;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .cell {
+    border: 1px solid rgba(208, 169, 101, 0.82);
+    border-radius: 6px;
+    background: linear-gradient(180deg, #fff8ea, #f7ead0);
+    color: #5d3a1f;
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.88),
+        0 1px 0 rgba(196, 153, 85, 0.34),
+        0 2px 3px rgba(171, 125, 55, 0.08);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .cell.selected {
+    border-color: rgba(228, 167, 46, 0.96);
+    background: linear-gradient(180deg, #ffe95a, #ffbe1f);
+    color: #4c2c10;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 249, 195, 0.9),
+        0 0 0 1px rgba(238, 183, 58, 0.32),
+        0 5px 10px rgba(209, 151, 29, 0.24);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .cell.found {
+    border-color: color-mix(in srgb, var(--word-end, #99681f) 58%, #c67d2f);
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--word-start, #e7c46b) 92%, #ffffff),
+            color-mix(in srgb, var(--word-start, #e7c46b) 82%, var(--word-end, #99681f))
+        );
+    color: #432814;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 1px 0 rgba(120, 81, 25, 0.16),
+        0 0 0 1px color-mix(in srgb, var(--word-start, #e7c46b) 32%, transparent),
+        0 5px 10px var(--word-glow, rgba(153, 104, 31, 0.18));
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-action-bar {
+    padding-top: 8px;
+    background:
+        linear-gradient(180deg, rgba(255, 252, 244, 0.98), rgba(240, 229, 205, 0.96));
+    border-top: 1px solid rgba(148, 112, 60, 0.16);
+    box-shadow: 0 -12px 24px rgba(104, 74, 38, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-action-btn {
+    min-height: 54px;
+    border: 1px solid rgba(152, 118, 70, 0.18);
+    border-radius: 12px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent 34%),
+        linear-gradient(180deg, #f6efdf, #e9dcc0);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 248, 234, 0.9),
+        inset 0 -1px 0 rgba(148, 112, 69, 0.08),
+        0 6px 12px rgba(104, 74, 38, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-action-btn span {
+    background: linear-gradient(180deg, #8da875, #5d7a4f);
+    box-shadow: 0 4px 8px rgba(79, 111, 70, 0.18);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="biblical"] .knowledge-action-btn strong {
+    color: #4c3a24;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .mission-panel,
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .grid-wrapper,
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-action-btn {
+    border-radius: 12px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .grid-wrapper {
+    box-shadow:
+        0 16px 28px var(--board-glow),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.78),
+        inset 0 -4px 0 rgba(95, 72, 50, 0.08);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .mission-panel,
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .grid-wrapper {
+    border-radius: 24px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-action-btn span {
+    border-radius: 999px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .mission-panel {
+    border-radius: 24px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .grid-wrapper {
+    border-radius: 24px 24px 20px 20px;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-action-btn,
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-story-intro img {
+    border-radius: 16px;
+}
+
+#screen-game.is-knowledge-mode {
+    padding-bottom: 84px;
+}
+
+#screen-game.is-knowledge-mode .mission-panel,
+#screen-game.is-knowledge-mode .grid-wrapper {
+    border-radius: 22px 22px 18px 18px;
+}
+
 #screen-game.is-knowledge-mode .mission-panel {
-    padding: 10px;
+    padding: 16px 16px 14px;
+    border: 1px solid rgba(151, 112, 57, 0.28);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 180, 124, 0.24), transparent 30%),
+        linear-gradient(180deg, #fff6e7, #f4e4c5 72%, #edd6ab);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 247, 228, 0.92),
+        inset 0 -1px 0 rgba(140, 104, 61, 0.12),
+        0 12px 24px rgba(129, 89, 42, 0.12);
+}
+
+#screen-game.is-knowledge-mode .knowledge-story-intro {
+    gap: 12px;
+}
+
+#screen-game.is-knowledge-mode .knowledge-story-intro-copy span,
+#screen-game.is-knowledge-mode .knowledge-inline-word.word-chip {
+    color: #9a7436;
+    letter-spacing: 0.04em;
+}
+
+#screen-game.is-knowledge-mode .knowledge-story-intro-copy strong {
+    color: #442b17;
+    text-shadow: 0 1px 0 rgba(255, 248, 232, 0.42);
+}
+
+#screen-game.is-knowledge-mode .knowledge-story-intro-copy p {
+    color: #6a5437;
+}
+
+#screen-game.is-knowledge-mode .knowledge-story-intro img {
+    border-color: rgba(255, 243, 218, 0.92);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #f8ebd0, #ead5ab);
+    box-shadow:
+        0 8px 16px rgba(129, 89, 42, 0.1),
+        inset 0 1px 0 rgba(255, 250, 240, 0.82);
+}
+
+#screen-game.is-knowledge-mode .knowledge-integrated-story {
+    padding-top: 14px;
+    border-top: 1px solid rgba(156, 122, 70, 0.24);
+}
+
+#screen-game.is-knowledge-mode .knowledge-integrated-copy p {
+    color: #5d4a33;
+}
+
+#screen-game.is-knowledge-mode .knowledge-progress-shell {
+    border: 1px solid rgba(151, 112, 57, 0.24);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 180, 124, 0.18), transparent 30%),
+        linear-gradient(180deg, #fff5e2, #f2dfb8 72%, #ead09f);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 247, 228, 0.82),
+        inset 0 -1px 0 rgba(140, 104, 61, 0.1),
+        0 10px 20px rgba(129, 89, 42, 0.1);
+}
+
+#screen-game.is-knowledge-mode .knowledge-progress-copy span {
+    color: #9a7436;
+}
+
+#screen-game.is-knowledge-mode .knowledge-progress-copy strong {
+    background: rgba(255, 248, 234, 0.94);
+    color: #4c3218;
+}
+
+#screen-game.is-knowledge-mode .knowledge-progress-track {
+    background: rgba(157, 121, 61, 0.22);
+}
+
+#screen-game.is-knowledge-mode .knowledge-progress-track span {
+    background: linear-gradient(90deg, #f3d16f, #cd9d41);
+}
+
+#screen-game.is-knowledge-mode .grid-wrapper {
+    padding: 6px;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: none;
+}
+
+#screen-game.is-knowledge-mode .grid-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 14px;
+    border: 1px solid var(--knowledge-board-frame);
+    background: linear-gradient(180deg, var(--knowledge-board-base-a), var(--knowledge-board-base-b));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 244, 214, 0.38),
+        0 8px 14px var(--knowledge-board-base-shadow);
+}
+
+#screen-game.is-knowledge-mode .letter-grid {
+    max-width: 402px;
+    gap: 4px;
+    z-index: 1;
+}
+
+#screen-game.is-knowledge-mode .cell {
+    border: 1px solid var(--knowledge-cell-border);
+    border-radius: 6px;
+    background: linear-gradient(180deg, var(--knowledge-cell-bg-a), var(--knowledge-cell-bg-b));
+    color: var(--knowledge-cell-text);
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.88),
+        0 1px 0 var(--knowledge-cell-shadow-a),
+        0 2px 3px var(--knowledge-cell-shadow-b);
+}
+
+#screen-game.is-knowledge-mode .cell.selected {
+    border-color: var(--knowledge-select-border);
+    background: linear-gradient(180deg, var(--knowledge-select-bg-a), var(--knowledge-select-bg-b));
+    color: var(--knowledge-select-text);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 249, 195, 0.9),
+        0 0 0 1px var(--knowledge-select-ring),
+        0 5px 10px var(--knowledge-select-shadow);
+}
+
+#screen-game.is-knowledge-mode .cell.found {
+    border-color: color-mix(in srgb, var(--word-end, #99681f) 58%, #c67d2f);
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--word-start, #e7c46b) 92%, #ffffff),
+            color-mix(in srgb, var(--word-start, #e7c46b) 82%, var(--word-end, #99681f))
+        );
+    color: #432814;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 1px 0 rgba(120, 81, 25, 0.16),
+        0 0 0 1px color-mix(in srgb, var(--word-start, #e7c46b) 32%, transparent),
+        0 5px 10px var(--word-glow, rgba(153, 104, 31, 0.18));
+}
+
+#screen-game.is-knowledge-mode .knowledge-action-bar {
+    padding-top: 8px;
+    background: linear-gradient(180deg, rgba(255, 252, 244, 0.98), rgba(240, 229, 205, 0.96));
+    border-top: 1px solid rgba(148, 112, 60, 0.16);
+    box-shadow: 0 -12px 24px rgba(104, 74, 38, 0.12);
+}
+
+#screen-game.is-knowledge-mode .knowledge-action-btn {
+    min-height: 54px;
+    border: 1px solid rgba(152, 118, 70, 0.18);
+    border-radius: 12px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent 34%),
+        linear-gradient(180deg, #f6efdf, #e9dcc0);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 248, 234, 0.9),
+        inset 0 -1px 0 rgba(148, 112, 69, 0.08),
+        0 6px 12px rgba(104, 74, 38, 0.1);
+}
+
+#screen-game.is-knowledge-mode .knowledge-action-btn span {
+    border-radius: 12px;
+    background: linear-gradient(180deg, #8da875, #5d7a4f);
+    box-shadow: 0 4px 8px rgba(79, 111, 70, 0.18);
+}
+
+#screen-game.is-knowledge-mode .knowledge-action-btn strong {
+    color: #4c3a24;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .mission-panel {
+    border-color: rgba(93, 180, 168, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.44), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(114, 220, 209, 0.22), transparent 30%),
+        linear-gradient(180deg, #f6fffd, #e6f7f3 72%, #d4efe8);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.94),
+        inset 0 -1px 0 rgba(71, 142, 134, 0.08),
+        0 12px 24px rgba(44, 130, 128, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-story-intro-copy span {
+    color: #2f9aa5;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-story-intro-copy strong {
+    color: #1f4549;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-story-intro-copy p,
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-integrated-copy p {
+    color: #35595d;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-story-intro img {
+    border-color: rgba(237, 255, 251, 0.94);
+    background: linear-gradient(180deg, #ebfffb, #d1f0ea);
+    box-shadow:
+        0 8px 16px rgba(44, 130, 128, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-integrated-story {
+    border-top-color: rgba(93, 180, 168, 0.18);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-progress-shell {
+    border-color: rgba(93, 180, 168, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(114, 220, 209, 0.18), transparent 30%),
+        linear-gradient(180deg, #f5fffc, #e4f5f0 72%, #d3eee6);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.94),
+        inset 0 -1px 0 rgba(71, 142, 134, 0.08),
+        0 10px 20px rgba(44, 130, 128, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-progress-copy span {
+    color: #2f9aa5;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-progress-copy strong {
+    background: rgba(255, 248, 221, 0.96);
+    color: #8d5c13;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-progress-track {
+    background: linear-gradient(90deg, rgba(78, 180, 170, 0.2), rgba(255, 214, 102, 0.16));
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-progress-track span {
+    background: linear-gradient(90deg, #4fd0c7, #ffd95e 78%, #f0a11f);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-action-bar {
+    background: linear-gradient(180deg, rgba(248, 255, 252, 0.98), rgba(226, 244, 239, 0.96));
+    border-top-color: rgba(93, 180, 168, 0.16);
+    box-shadow: 0 -12px 24px rgba(44, 130, 128, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-action-btn {
+    border-color: rgba(93, 180, 168, 0.18);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent 34%),
+        linear-gradient(180deg, #f8fffd, #e6f6f2);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.92),
+        inset 0 -1px 0 rgba(71, 142, 134, 0.08),
+        0 6px 12px rgba(44, 130, 128, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-action-btn span {
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffd95e, #f39a1f);
+    box-shadow: 0 4px 8px rgba(243, 154, 31, 0.2);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="curiosities"] .knowledge-action-btn strong {
+    color: #25484d;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .mission-panel {
+    border-color: rgba(170, 122, 79, 0.24);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 170, 116, 0.2), transparent 30%),
+        linear-gradient(180deg, #fff7ec, #f3e3cf 72%, #ead2b0);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 250, 241, 0.92),
+        inset 0 -1px 0 rgba(145, 107, 69, 0.08),
+        0 12px 24px rgba(117, 83, 52, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-story-intro-copy span {
+    color: #9c5f33;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-story-intro-copy strong {
+    color: #4d311d;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-story-intro-copy p,
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-integrated-copy p {
+    color: #5e4836;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-story-intro img {
+    border-color: rgba(255, 245, 228, 0.94);
+    background: linear-gradient(180deg, #faecd8, #e8d0ab);
+    box-shadow:
+        0 8px 16px rgba(117, 83, 52, 0.1),
+        inset 0 1px 0 rgba(255, 251, 244, 0.86);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-integrated-story {
+    border-top-color: rgba(170, 122, 79, 0.2);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-progress-shell {
+    border-color: rgba(170, 122, 79, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 170, 116, 0.16), transparent 30%),
+        linear-gradient(180deg, #fff5e8, #f1dfc2 72%, #e6cfaa);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 250, 241, 0.9),
+        inset 0 -1px 0 rgba(145, 107, 69, 0.08),
+        0 10px 20px rgba(117, 83, 52, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-progress-copy span {
+    color: #9c5f33;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-progress-copy strong {
+    background: rgba(249, 241, 226, 0.96);
+    color: #684224;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-progress-track {
+    background: linear-gradient(90deg, rgba(190, 150, 98, 0.2), rgba(94, 137, 170, 0.16));
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-progress-track span {
+    background: linear-gradient(90deg, #c58a43, #3f89b3 78%, #7faec7);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-action-bar {
+    background: linear-gradient(180deg, rgba(255, 250, 242, 0.98), rgba(241, 231, 213, 0.96));
+    border-top-color: rgba(170, 122, 79, 0.16);
+    box-shadow: 0 -12px 24px rgba(117, 83, 52, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-action-btn {
+    border-color: rgba(170, 122, 79, 0.18);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent 34%),
+        linear-gradient(180deg, #faf4ea, #ede0cf);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 250, 241, 0.92),
+        inset 0 -1px 0 rgba(145, 107, 69, 0.08),
+        0 6px 12px rgba(117, 83, 52, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-action-btn span {
+    border-radius: 12px;
+    background: linear-gradient(180deg, #75b4d1, #3f7ea1);
+    box-shadow: 0 4px 8px rgba(63, 126, 161, 0.18);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="civilizations"] .knowledge-action-btn strong {
+    color: #503724;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .mission-panel {
+    border-color: rgba(128, 145, 103, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 194, 133, 0.18), transparent 30%),
+        linear-gradient(180deg, #fbfcf6, #edf3e8 72%, #dfe8da);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.92),
+        inset 0 -1px 0 rgba(97, 120, 79, 0.08),
+        0 12px 24px rgba(72, 98, 72, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-story-intro-copy span {
+    color: #6a8a58;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-story-intro-copy strong {
+    color: #2d4335;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-story-intro-copy p,
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-integrated-copy p {
+    color: #42574a;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-story-intro img {
+    border-color: rgba(248, 252, 242, 0.94);
+    background: linear-gradient(180deg, #f4f8ec, #dde8d3);
+    box-shadow:
+        0 8px 16px rgba(72, 98, 72, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-integrated-story {
+    border-top-color: rgba(128, 145, 103, 0.18);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-progress-shell {
+    border-color: rgba(128, 145, 103, 0.2);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 14%),
+        radial-gradient(circle at 14% 0%, rgba(214, 194, 133, 0.15), transparent 30%),
+        linear-gradient(180deg, #fafcf5, #ebf1e5 72%, #dce5d7);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(97, 120, 79, 0.08),
+        0 10px 20px rgba(72, 98, 72, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-progress-copy span {
+    color: #6a8a58;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-progress-copy strong {
+    background: rgba(248, 244, 225, 0.96);
+    color: #766129;
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-progress-track {
+    background: linear-gradient(90deg, rgba(104, 150, 132, 0.18), rgba(213, 181, 96, 0.16));
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-progress-track span {
+    background: linear-gradient(90deg, #62b39c, #d7b35a 76%, #b78b35);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-action-bar {
+    background: linear-gradient(180deg, rgba(251, 252, 247, 0.98), rgba(235, 242, 230, 0.96));
+    border-top-color: rgba(128, 145, 103, 0.15);
+    box-shadow: 0 -12px 24px rgba(72, 98, 72, 0.12);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-action-btn {
+    border-color: rgba(128, 145, 103, 0.18);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent 34%),
+        linear-gradient(180deg, #fbfcf7, #eef3e8);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.92),
+        inset 0 -1px 0 rgba(97, 120, 79, 0.08),
+        0 6px 12px rgba(72, 98, 72, 0.1);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-action-btn span {
+    border-radius: 12px;
+    background: linear-gradient(180deg, #86b185, #5f8a5e);
+    box-shadow: 0 4px 8px rgba(95, 138, 94, 0.18);
+}
+
+#screen-game.is-knowledge-mode[data-knowledge-theme="wonders"] .knowledge-action-btn strong {
+    color: #314437;
+}
+
+#screen-game.is-knowledge-mode .game-hero {
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .booster-bar {
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .knowledge-action-bar {
+    display: grid;
+}
+
+#screen-game.is-knowledge-mode .game-hero::after,
+#screen-game.is-knowledge-mode .game-hero::before,
+#screen-game.is-knowledge-mode .board-shine {
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .game-hero-top {
+    grid-template-columns: 42px 1fr 42px;
+}
+
+#screen-game.is-knowledge-mode .game-title-block,
+#screen-game.is-knowledge-mode .game-progress-shell {
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .game-title-block {
+    text-align: left;
+    transform: none;
+}
+
+#screen-game.is-knowledge-mode .game-title-block span {
+    font-size: 8px;
+    letter-spacing: 0.08em;
+}
+
+#screen-game.is-knowledge-mode .game-title-block h2 {
+    margin-top: 3px;
+    font-size: 22px;
+}
+
+#screen-game.is-knowledge-mode .game-title-block h2::before {
+    content: none;
+}
+
+#screen-game.is-knowledge-mode .game-progress-shell {
+    margin-top: 8px;
+    padding: 8px 9px;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+#screen-game.is-knowledge-mode .knowledge-game-story {
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .knowledge-game-story img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+}
+
+#screen-game.is-knowledge-mode .knowledge-game-story span {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+#screen-game.is-knowledge-mode .knowledge-game-story h3 {
+    margin: 4px 0 5px;
+    font-size: 18px;
+    line-height: 1.02;
+}
+
+#screen-game.is-knowledge-mode .knowledge-game-story p {
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+#screen-game.is-knowledge-mode .mission-panel {
+    padding: 14px 14px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--knowledge-panel-border);
+    background:
+        radial-gradient(circle at 10% 0%, var(--board-accent-soft), transparent 28%),
+        linear-gradient(180deg, var(--knowledge-panel-a), var(--knowledge-panel-b));
+    box-shadow:
+        0 12px 26px var(--knowledge-panel-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
 #screen-game.is-knowledge-mode .mission-title-row {
-    margin-bottom: 8px;
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .mission-title-row span {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+#screen-game.is-knowledge-mode .mission-title-row h3 {
+    font-size: 18px;
 }
 
 #screen-game.is-knowledge-mode .words-container {
     display: block;
     max-height: none;
     overflow: visible;
+    padding: 0;
+}
+
+#screen-game.is-knowledge-mode .board-stage {
+    margin-top: -1px;
+}
+
+#screen-game.is-knowledge-mode .grid-wrapper {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--knowledge-panel-border);
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.54), transparent 68%),
+        radial-gradient(circle at 50% 34%, var(--board-accent-soft), transparent 48%),
+        linear-gradient(180deg, var(--board-panel-a), var(--board-panel-b)),
+        repeating-linear-gradient(45deg, color-mix(in srgb, var(--board-accent-soft) 78%, transparent) 0 8px, transparent 8px 16px);
+    box-shadow:
+        0 16px 28px var(--board-glow),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+}
+
+.knowledge-story-shell {
+    display: grid;
+    gap: 12px;
+}
+
+.knowledge-story-intro {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.knowledge-story-intro img {
+    width: 54px;
+    height: 54px;
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 8px 16px var(--knowledge-panel-glow);
+}
+
+.knowledge-story-intro-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.knowledge-story-intro-copy span {
+    display: block;
+    color: var(--knowledge-kicker);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.knowledge-story-intro-copy strong {
+    display: block;
+    margin-top: 3px;
+    color: var(--knowledge-heading);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.02;
+}
+
+.knowledge-story-intro-copy p {
+    margin-top: 8px;
+    color: var(--knowledge-body);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.55;
+    max-width: 30ch;
+}
+
+.knowledge-story-intro small {
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: rgba(79, 169, 154, 0.12);
+    color: #17665a;
+    font-size: 11px;
+    font-weight: 900;
+    white-space: nowrap;
 }
 
 .knowledge-integrated-story {
-    display: grid;
-    grid-template-columns: 62px minmax(0, 1fr);
-    gap: 10px;
-    align-items: start;
-}
-
-.knowledge-integrated-story img {
-    width: 62px;
-    height: 62px;
-    border: 2px solid rgba(255, 255, 255, 0.92);
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 8px 16px rgba(39, 85, 71, 0.18);
+    display: block;
+    padding-top: 12px;
+    border-top: 1px solid var(--knowledge-divider);
 }
 
 .knowledge-integrated-copy > span {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     color: var(--board-accent-strong);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 900;
     text-transform: uppercase;
 }
 
 .knowledge-integrated-copy p {
-    color: #34413d;
-    font-size: 14px;
+    color: var(--knowledge-body);
+    font-size: 16px;
     font-weight: 700;
-    line-height: 1.56;
+    line-height: 1.68;
+}
+
+.knowledge-progress-shell {
+    display: none;
+}
+
+#screen-game.is-knowledge-mode .knowledge-progress-shell {
+    display: block;
+    padding: 10px 12px 8px;
+    border: 1px solid var(--knowledge-panel-border);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 12% 0%, var(--board-accent-soft), transparent 30%),
+        linear-gradient(180deg, var(--knowledge-panel-a), var(--knowledge-panel-b));
+    box-shadow:
+        0 10px 18px var(--knowledge-panel-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.knowledge-progress-copy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.knowledge-progress-copy span {
+    color: var(--knowledge-kicker);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.knowledge-progress-copy strong {
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--knowledge-heading);
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    box-shadow: 0 4px 8px var(--knowledge-panel-glow);
+}
+
+.knowledge-progress-track {
+    height: 8px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--knowledge-kicker) 30%, rgba(68, 54, 34, 0.18));
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.knowledge-progress-track span {
+    width: 0;
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--knowledge-kicker) 62%, #fff0b8), var(--knowledge-kicker));
+    transition: width 220ms ease;
 }
 
 .knowledge-inline-word.word-chip {
@@ -2803,14 +3982,14 @@ body.reduced-motion *::after {
     border-radius: 0;
     display: inline;
     background: transparent;
-    color: #173f39;
+    color: color-mix(in srgb, var(--knowledge-heading) 90%, var(--board-accent));
     box-shadow: none;
     font: inherit;
     line-height: inherit;
     text-transform: none;
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
-    text-decoration-color: #0d2d28;
+    text-decoration-color: var(--board-accent);
     text-underline-offset: 3px;
 }
 
@@ -3307,6 +4486,10 @@ body.reduced-motion *::after {
     animation: hint-glow 900ms ease-in-out 2;
 }
 
+.cell.auto-guided {
+    animation: auto-guide-glow 1300ms ease-in-out 2;
+}
+
 .cell.area-hint {
     border-color: rgba(63, 134, 183, 0.34);
     background:
@@ -3403,6 +4586,16 @@ body.reduced-motion *::after {
     }
 }
 
+@keyframes auto-guide-glow {
+    50% {
+        transform: translateY(-1px) scale(1.05);
+        box-shadow:
+            0 0 0 4px rgba(121, 215, 217, 0.18),
+            0 8px 12px rgba(63, 134, 183, 0.16);
+        filter: brightness(1.06);
+    }
+}
+
 .booster-bar {
     position: fixed;
     left: 50%;
@@ -3417,6 +4610,68 @@ body.reduced-motion *::after {
     border-radius: 18px 18px 0 0;
     box-shadow: 0 -12px 28px rgba(40, 73, 81, 0.18);
     transform: translateX(-50%);
+}
+
+.knowledge-action-bar {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 6;
+    width: min(100vw, 430px);
+    padding: 9px 12px calc(11px + env(safe-area-inset-bottom));
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid rgba(66, 94, 94, 0.14);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -12px 28px rgba(40, 73, 81, 0.18);
+    transform: translateX(-50%);
+}
+
+.knowledge-action-btn {
+    min-height: 58px;
+    border: 0;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), transparent 40%),
+        linear-gradient(180deg, var(--knowledge-button-bg-a), var(--knowledge-button-bg-b));
+    color: var(--knowledge-button-text);
+    cursor: pointer;
+    box-shadow:
+        0 8px 16px var(--knowledge-panel-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.knowledge-action-btn:active {
+    transform: scale(0.96) translateY(1px);
+    box-shadow:
+        0 4px 8px rgba(44, 86, 82, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.knowledge-action-btn span {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, var(--knowledge-button-icon-a), var(--knowledge-button-icon-b));
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.knowledge-action-btn strong {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 900;
 }
 
 .booster-btn {
@@ -4002,14 +5257,29 @@ body.reduced-motion .cell.selected::after {
     }
 
     .knowledge-integrated-story {
-        grid-template-columns: 52px minmax(0, 1fr);
-        gap: 8px;
+        display: block;
     }
 
-    .knowledge-integrated-story img {
-        width: 52px;
-        height: 52px;
-        border-radius: 10px;
+    .knowledge-story-intro {
+        align-items: start;
+        flex-wrap: wrap;
+    }
+
+    .knowledge-story-intro img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .knowledge-story-intro-copy {
+        flex-basis: calc(100% - 58px);
+    }
+
+    .knowledge-story-intro-copy strong {
+        font-size: 18px;
+    }
+
+    .knowledge-story-intro small {
+        margin-left: 58px;
     }
 
     .knowledge-integrated-copy p {

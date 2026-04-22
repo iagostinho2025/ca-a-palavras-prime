@@ -372,6 +372,8 @@ export const modeMethods = {
         if (text) text.textContent = 'Encontre na história as palavras destacadas.';
         const missionTitle = document.getElementById('mission-title');
         if (missionTitle) missionTitle.textContent = lesson.title;
+        if (text) text.textContent = 'Leia o trecho e procure no tabuleiro apenas as palavras destacadas.';
+        if (missionTitle) missionTitle.textContent = 'Texto da jornada';
         this.updateAvatarUI();
     },
 
@@ -457,6 +459,7 @@ export const modeMethods = {
             this.playState.startedAt = Date.now();
             this.playState.pausedMs = 0;
             this.game.startLevel(words, config);
+            if (this.gameMode === 'knowledge') this.scheduleKnowledgeAutoAssist();
             this.clearGameFeedback();
         } catch (error) {
             console.error(error);

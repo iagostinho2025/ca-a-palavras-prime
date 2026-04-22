@@ -1,7 +1,8 @@
 import { Progression } from './progression.js';
 import { CAMPAIGN_MAX_LEVEL } from './campaign-levels.js';
 import { formatWalletAmount } from './app-utils.js';
-import { WORD_COLORS } from './app-constants.js';
+import { KNOWLEDGE_WORD_COLORS, WORD_COLORS } from './app-constants.js';
+import { normalizeText, repairMojibake, sanitizeLabel } from './content-utils.js';
 
 export const uiMethods = {
     toggleDrawer() {},
@@ -18,6 +19,14 @@ export const uiMethods = {
         const isKnowledgeGame = id === 'game' && this.gameMode === 'knowledge';
         gameScreen?.classList.toggle('is-knowledge-mode', isKnowledgeGame);
         gameScreen?.classList.toggle('is-prime-event', id === 'game' && this.gameMode === 'prime-event');
+        if (gameScreen) {
+            if (isKnowledgeGame && this.knowledgeState?.themeKey) {
+                gameScreen.dataset.knowledgeTheme = this.knowledgeState.themeKey;
+            } else {
+                delete gameScreen.dataset.knowledgeTheme;
+            }
+        }
+        if (id !== 'game' || !isKnowledgeGame) this.clearKnowledgeAutoAssist();
         document.getElementById('knowledge-game-story')?.classList.add('hidden');
         this.updateBottomNav(id);
         if (id === 'menu') this.updateMenuUI();
@@ -38,7 +47,59 @@ export const uiMethods = {
             pausedAt: 0,
             pausedMs: 0
         };
+        this.clearKnowledgeAutoAssist();
         this.updateGameHUD();
+    },
+
+    clearKnowledgeAutoAssistVisual() {
+        if (!this.knowledgeAssistCell) return;
+        this.knowledgeAssistCell.classList.remove('auto-guided');
+        this.knowledgeAssistCell = null;
+    },
+
+    clearKnowledgeAutoAssist() {
+        clearTimeout(this.knowledgeAssistTimer);
+        this.knowledgeAssistTimer = null;
+        this.knowledgeAssistArmedAt = 0;
+        this.clearKnowledgeAutoAssistVisual();
+    },
+
+    scheduleKnowledgeAutoAssist(delay = 40000) {
+        this.clearKnowledgeAutoAssist();
+        if (this.gameMode !== 'knowledge') return;
+        if (!this.game || this.playState.paused) return;
+        if ((this.playState.foundWords || 0) >= 5) return;
+
+        this.knowledgeAssistArmedAt = Date.now();
+        this.knowledgeAssistTimer = setTimeout(() => {
+            this.showKnowledgeAutoAssist();
+        }, delay);
+    },
+
+    showKnowledgeAutoAssist() {
+        this.knowledgeAssistTimer = null;
+        if (this.gameMode !== 'knowledge') return;
+        if (!this.game || this.playState.paused) return;
+        if ((this.playState.foundWords || 0) >= 5) return;
+
+        const target = this.getPendingWord();
+        if (!target) return;
+        const coords = this.findWordCoords(target);
+        if (!coords.length) return;
+
+        const [r, c] = coords[0].split(',');
+        const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+        if (!cell) return;
+
+        this.clearKnowledgeAutoAssistVisual();
+        this.knowledgeAssistCell = cell;
+        cell.classList.add('auto-guided');
+        this.knowledgeAssistTimer = setTimeout(() => {
+            this.clearKnowledgeAutoAssistVisual();
+            if (this.gameMode === 'knowledge' && !this.playState.paused && (this.playState.foundWords || 0) < 5) {
+                this.scheduleKnowledgeAutoAssist(25000);
+            }
+        }, 2600);
     },
 
     updateGameHUD() {
@@ -46,13 +107,16 @@ export const uiMethods = {
         const found = this.playState.foundWords || 0;
         const progress = total ? (found / total) * 100 : 0;
         const progressBar = document.getElementById('game-progress-bar');
+        const knowledgeProgressBar = document.getElementById('knowledge-progress-bar');
         const hints = document.getElementById('game-hints-left');
         const area = document.getElementById('game-area-left');
         const clear = document.getElementById('game-clear-left');
         const sound = document.getElementById('game-sound-state');
 
         this.updateStatText('game-progress-text', `${found}/${total}`);
+        this.updateStatText('knowledge-progress-text', `${found}/${total}`);
         if (progressBar) progressBar.style.width = `${Math.min(100, progress)}%`;
+        if (knowledgeProgressBar) knowledgeProgressBar.style.width = `${Math.min(100, progress)}%`;
         if (hints) hints.textContent = this.playState.hintsLeft;
         if (area) area.textContent = this.playState.areaLeft;
         if (clear) clear.textContent = this.playState.clearLeft;
@@ -118,10 +182,12 @@ export const uiMethods = {
         if (this.playState.paused) {
             this.playState.pausedAt = Date.now();
             this.game.stopTimer();
+            this.clearKnowledgeAutoAssist();
             this.setGameFeedback('Partida pausada');
         } else {
             this.playState.pausedMs += Date.now() - this.playState.pausedAt;
             this.game.resumeTimer?.(this.playState.pausedMs);
+            this.scheduleKnowledgeAutoAssist();
             this.setGameFeedback('De volta ao jogo.');
         }
         this.updateGameHUD();
@@ -390,7 +456,11 @@ export const uiMethods = {
 
     markFoundDOM(coords, word) {
         const wordIndex = this.game?.words?.indexOf(word) ?? 0;
-        const color = WORD_COLORS[Math.max(0, wordIndex) % WORD_COLORS.length];
+        const knowledgePalette = this.gameMode === 'knowledge'
+            ? KNOWLEDGE_WORD_COLORS[this.knowledgeState?.themeKey]
+            : null;
+        const palette = knowledgePalette?.length ? knowledgePalette : WORD_COLORS;
+        const color = palette[Math.max(0, wordIndex) % palette.length];
         coords.forEach((key, index) => {
             const [r, c] = key.split(',');
             const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
@@ -411,6 +481,8 @@ export const uiMethods = {
         this.playState.foundWords = this.game?.found?.size ?? document.querySelectorAll('.word-chip.found').length;
         this.playState.combo = Math.min(9, this.playState.combo + 1);
         this.setGameFeedback(`${word} encontrada`);
+        this.clearKnowledgeAutoAssist();
+        if (this.gameMode === 'knowledge' && this.playState.foundWords < 5) this.scheduleKnowledgeAutoAssist();
         this.updateGameHUD();
     },
 
@@ -467,6 +539,7 @@ export const uiMethods = {
         board.onpointerdown = (event) => {
             const cell = event.target.closest('.cell');
             if (!cell || this.playState.paused) return;
+            this.clearKnowledgeAutoAssistVisual();
             updateGridMetrics();
             isDragging = true;
             board.setPointerCapture?.(event.pointerId);
@@ -527,14 +600,13 @@ export const uiMethods = {
         }
 
         const remaining = new Set(words);
-        const storyHTML = lesson.text.split(/(\s+)/).map((chunk) => {
+        const lessonTitle = sanitizeLabel(lesson.title);
+        const lessonText = repairMojibake(lesson.text);
+        const storyHTML = lessonText.split(/(\s+)/).map((chunk) => {
             if (!chunk.trim()) return chunk;
 
-            const clean = chunk.replace(/^[^A-Za-zÀ-ÿ]+|[^A-Za-zÀ-ÿ]+$/g, '');
-            const normalized = clean
-                .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
-                .toUpperCase();
+            const clean = chunk.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '');
+            const normalized = normalizeText(clean).replace(/[^A-Z]/g, '');
 
             if (!remaining.has(normalized)) return chunk;
             remaining.delete(normalized);
@@ -546,11 +618,19 @@ export const uiMethods = {
         }).join('');
 
         list.innerHTML = `
-            <div class="knowledge-integrated-story">
-                <img src="${this.settings.avatar}" alt="">
-                <div class="knowledge-integrated-copy">
-                    <span>${lesson.title}</span>
-                    <p>${storyHTML}</p>
+            <div class="knowledge-story-shell">
+                <div class="knowledge-story-intro">
+                    <img src="${this.settings.avatar}" alt="">
+                    <div class="knowledge-story-intro-copy">
+                        <span>${this.knowledgeState?.lesson?.title ? 'Jornada' : 'Conhecimento'}</span>
+                        <strong>${lessonTitle}</strong>
+                        <p>Leia o trecho e procure no tabuleiro apenas as palavras destacadas.</p>
+                    </div>
+                </div>
+                <div class="knowledge-integrated-story">
+                    <div class="knowledge-integrated-copy">
+                        <p>${storyHTML}</p>
+                    </div>
                 </div>
             </div>
         `;
