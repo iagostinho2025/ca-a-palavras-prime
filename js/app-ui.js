@@ -66,6 +66,7 @@ export const uiMethods = {
             screen.classList.remove('hidden');
             screen.classList.add('animate-in');
         }
+        document.body.classList.toggle('is-knowledge-map', id === 'knowledge');
         window.scrollTo?.({ top: 0, left: 0, behavior: 'instant' });
         const gameScreen = document.getElementById('screen-game');
         const isKnowledgeGame = id === 'game' && this.gameMode === 'knowledge';

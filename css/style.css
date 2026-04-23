@@ -65,6 +65,11 @@ button:focus-visible {
     overflow: hidden;
 }
 
+body.is-knowledge-map,
+body.is-knowledge-map #app {
+    background: #b5a57a;
+}
+
 .hidden {
     display: none !important;
 }
@@ -2250,6 +2255,7 @@ body.reduced-motion .nav-item.active img {
 #screen-knowledge {
     min-height: 100dvh;
     height: 100dvh;
+    width: 100%;
     padding: 18px 18px 92px;
     position: relative;
     overflow: hidden;
@@ -2473,6 +2479,18 @@ body.reduced-motion .nav-item.active img {
 #btn-start-knowledge,
 #screen-knowledge > .btn.btn-primary {
     display: none !important;
+}
+
+@media (max-width: 600px) {
+    body.is-knowledge-map #app {
+        width: 100vw;
+        max-width: none;
+        margin: 0;
+    }
+
+    body.is-knowledge-map #screen-knowledge {
+        width: 100vw;
+    }
 }
 
 

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v93';
+const CACHE_VERSION = 'v94';
 const PRECACHE_NAME = `wordhunter-precache-${CACHE_VERSION}`;
 const RUNTIME_NAME = `wordhunter-runtime-${CACHE_VERSION}`;
 
