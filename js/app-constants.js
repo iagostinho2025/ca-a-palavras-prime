@@ -1,5 +1,6 @@
 export const SETTINGS_KEY = 'wh_pro_settings_v1';
 export const DEFAULT_PLAYER_NAME = 'Mestre das Palavras';
+export const CAMPAIGN_MAX_LEVEL = 100;
 export const AVATARS = Array.from(
     { length: 10 },
     (_, index) => `assets/images/avatar/avatar-${String(index + 1).padStart(2, '0')}.webp`

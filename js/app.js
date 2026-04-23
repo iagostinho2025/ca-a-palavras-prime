@@ -34,6 +34,20 @@ const App = {
         lesson: null,
         words: []
     },
+    boardCellMap: new Map(),
+    selectedCellElements: [],
+    wordCoordsCache: new Map(),
+    wordChipMap: new Map(),
+    boardResizeHandler: null,
+    boundDeferredViews: new Set(),
+    themesData: null,
+    themesPromise: null,
+    campaignData: null,
+    campaignPromise: null,
+    knowledgeData: null,
+    knowledgePromise: null,
+    primeEventData: null,
+    primeEventPromise: null,
     knowledgeAssistTimer: null,
     knowledgeAssistCell: null,
     knowledgeAssistArmedAt: 0,
@@ -57,7 +71,7 @@ const App = {
             markFound: (coords, word) => this.markFoundDOM(coords, word),
             onWin: (time) => {
                 spawnConfetti();
-                this.handleWin(time);
+                void this.handleWin(time);
             },
             onUpdateTimer: () => {}
         });
@@ -65,22 +79,68 @@ const App = {
         this.showScreen('menu');
     },
 
+    ensureDeferredUI(id) {
+        const screenId = `screen-${id}`;
+        if (document.getElementById(screenId)) {
+            this.bindDeferredUI(id);
+            return;
+        }
+
+        const template = document.getElementById(`tpl-${screenId}`);
+        if (!template) return;
+
+        const appRoot = document.getElementById('app');
+        appRoot.appendChild(template.content.cloneNode(true));
+        this.bindDeferredUI(id);
+    },
+
+    bindDeferredUI(id) {
+        if (this.boundDeferredViews.has(id)) return;
+
+        if (id === 'settings') {
+            document.getElementById('setting-sound').onchange = (event) => this.updateSetting('sound', event.target.checked);
+            document.getElementById('setting-haptics').onchange = (event) => this.updateSetting('haptics', event.target.checked);
+            document.getElementById('setting-contrast').onchange = (event) => this.updateSetting('contrast', event.target.checked);
+            document.getElementById('setting-reduce-motion').onchange = (event) => this.updateSetting('reduceMotion', event.target.checked);
+            document.querySelectorAll('[data-font-size]').forEach((btn) => {
+                btn.onclick = () => this.updateSetting('fontSize', btn.dataset.fontSize);
+            });
+            document.getElementById('btn-export-progress').onclick = () => this.copyProgressSummary();
+            document.getElementById('btn-reset-progress').onclick = () => this.armOrResetProgress();
+        } else if (id === 'profile') {
+            document.getElementById('btn-close-profile').onclick = () => this.showScreen('menu');
+            document.getElementById('profile-name-input').oninput = (event) => this.updatePlayerName(event.target.value);
+        } else if (id === 'achievements') {
+            document.getElementById('btn-close-achievements').onclick = () => this.showScreen('menu');
+        } else if (id === 'themes-select') {
+            document.getElementById('btn-close-themes').onclick = () => this.showScreen('menu');
+        } else if (id === 'knowledge') {
+            document.querySelectorAll('[data-knowledge-theme]').forEach((btn) => {
+                btn.onclick = () => void this.selectKnowledgeTheme(btn.dataset.knowledgeTheme);
+            });
+            document.getElementById('btn-play-knowledge-trail').onclick = () => void this.startKnowledgeGame();
+        } else if (id === 'prime-event') {
+            document.getElementById('btn-close-prime-event').onclick = () => this.showScreen('menu');
+            document.getElementById('btn-start-prime-event').onclick = () => void this.startPrimeEventGame();
+        }
+
+        this.boundDeferredViews.add(id);
+    },
+
     setupNavigation() {
-        document.getElementById('btn-mode-campaign').onclick = () => this.launchCampaign();
+        document.getElementById('btn-mode-campaign').onclick = () => void this.launchCampaign();
         document.getElementById('btn-open-profile').onclick = () => this.openProfileScreen();
 
         document.getElementById('btn-mode-themes').onclick = () => {
-            this.renderThemesList();
-            this.showScreen('themes-select');
+            void this.renderThemesList();
         };
 
-        document.getElementById('btn-mode-daily').onclick = () => this.launchQuickChallenge();
-        document.getElementById('btn-mode-events').onclick = () => this.openPrimeEventScreen();
-        document.getElementById('btn-mode-knowledge').onclick = () => this.openKnowledgeScreen();
+        document.getElementById('btn-mode-daily').onclick = () => void this.launchQuickChallenge();
+        document.getElementById('btn-mode-events').onclick = () => void this.openPrimeEventScreen();
+        document.getElementById('btn-mode-knowledge').onclick = () => void this.openKnowledgeScreen();
         document.getElementById('btn-nav-home').onclick = () => this.showScreen('menu');
         document.getElementById('btn-nav-themes').onclick = () => {
-            this.renderThemesList();
-            this.showScreen('themes-select');
+            void this.renderThemesList();
         };
         document.getElementById('btn-nav-shop').onclick = () => this.showToast('Loja de temas em preparação.');
         document.getElementById('btn-nav-stats').onclick = () => this.openAchievementsScreen();
@@ -102,31 +162,16 @@ const App = {
         };
         document.getElementById('btn-knowledge-settings').onclick = () => this.openGameSettings();
         document.getElementById('btn-game-sound').onclick = () => this.toggleGameSound();
-        document.getElementById('setting-sound').onchange = (event) => this.updateSetting('sound', event.target.checked);
-        document.getElementById('setting-haptics').onchange = (event) => this.updateSetting('haptics', event.target.checked);
-        document.getElementById('setting-contrast').onchange = (event) => this.updateSetting('contrast', event.target.checked);
-        document.getElementById('setting-reduce-motion').onchange = (event) => this.updateSetting('reduceMotion', event.target.checked);
-        document.getElementById('profile-name-input').oninput = (event) => this.updatePlayerName(event.target.value);
-        document.querySelectorAll('[data-font-size]').forEach((btn) => {
-            btn.onclick = () => this.updateSetting('fontSize', btn.dataset.fontSize);
-        });
-        document.getElementById('btn-export-progress').onclick = () => this.copyProgressSummary();
-        document.getElementById('btn-reset-progress').onclick = () => this.armOrResetProgress();
-        document.getElementById('btn-close-profile').onclick = () => this.showScreen('menu');
-        document.getElementById('btn-close-achievements').onclick = () => this.showScreen('menu');
-        document.getElementById('btn-close-themes').onclick = () => this.showScreen('menu');
         document.getElementById('btn-close-knowledge')?.addEventListener('click', () => this.showScreen('menu'));
-        document.getElementById('btn-close-prime-event').onclick = () => this.showScreen('menu');
         document.getElementById('btn-back-config').onclick = () => this.showScreen('themes-select');
-        document.getElementById('btn-start-custom').onclick = () => this.startCustomGame();
-        document.getElementById('btn-start-prime-event').onclick = () => this.startPrimeEventGame();
+        document.getElementById('btn-start-custom').onclick = () => void this.startCustomGame();
         document.getElementById('btn-prime-retry').onclick = () => {
             this.hideModal('prime-result');
-            this.startPrimeEventGame();
+            void this.startPrimeEventGame();
         };
         document.getElementById('btn-prime-event-home').onclick = () => {
             this.hideModal('prime-result');
-            this.openPrimeEventScreen();
+            void this.openPrimeEventScreen();
         };
 
         document.querySelectorAll('.config-card').forEach((btn) => {
@@ -135,10 +180,6 @@ const App = {
 
         document.querySelectorAll('.count-btn').forEach((btn) => {
             btn.onclick = () => this.selectWordCount(parseInt(btn.dataset.count, 10), btn);
-        });
-
-        document.querySelectorAll('[data-knowledge-theme]').forEach((btn) => {
-            btn.onclick = () => this.openKnowledgeTheme(btn.dataset.knowledgeTheme);
         });
 
         document.getElementById('btn-quit-game').onclick = () => {
@@ -154,9 +195,9 @@ const App = {
         document.getElementById('btn-next-level').onclick = () => {
             this.hideModal('victory');
             if (this.gameMode === 'campaign') {
-                this.launchCampaign();
+                void this.launchCampaign();
             } else {
-                this.showScreen('themes-select');
+                void this.renderThemesList();
             }
         };
     },
@@ -167,17 +208,27 @@ const App = {
 };
 
 function spawnConfetti() {
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+        || document.body.classList.contains('reduced-motion');
+    if (prefersReducedMotion) return;
+
+    const isCompactScreen = window.matchMedia?.('(max-width: 768px)')?.matches;
     const colors = ['#6366f1', '#10b981', '#f59e0b', '#ec4899'];
-    for (let i = 0; i < 50; i++) {
+    const particleCount = isCompactScreen ? 24 : 50;
+    const maxVelocity = isCompactScreen ? 220 : 300;
+    const minDuration = isCompactScreen ? 640 : 800;
+    const extraDuration = isCompactScreen ? 360 : 600;
+
+    for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.style.cssText = `position:fixed; left:50%; top:50%; width:12px; height:12px; background:${colors[Math.floor(Math.random() * colors.length)]}; border-radius:${Math.random() > 0.5 ? '50%' : '2px'}; z-index:1000; pointer-events:none;`;
         document.body.appendChild(particle);
         const angle = Math.random() * Math.PI * 2;
-        const velocity = 200 + Math.random() * 300;
+        const velocity = 140 + Math.random() * maxVelocity;
         particle.animate([
             { transform: 'translate(0,0) scale(1) rotate(0deg)', opacity: 1 },
             { transform: `translate(${Math.cos(angle) * velocity}px, ${Math.sin(angle) * velocity}px) scale(0) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-        ], { duration: 800 + Math.random() * 600, easing: 'cubic-bezier(0, .9, .57, 1)' }).onfinish = () => particle.remove();
+        ], { duration: minDuration + Math.random() * extraDuration, easing: 'cubic-bezier(0, .9, .57, 1)' }).onfinish = () => particle.remove();
     }
 }
 

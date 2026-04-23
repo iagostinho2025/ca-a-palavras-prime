@@ -31,6 +31,31 @@ const RAW_KNOWLEDGE_THEMES = {
                 title: 'O bom samaritano',
                 text: 'Na estrada entre Jerusal\u00e9m e Jeric\u00f3, um homem ferido recebeu ajuda de um samaritano. Ele usou \u00f3leo, vinho e cuidado para tratar as feridas. A par\u00e1bola ensina que o pr\u00f3ximo merece amor, mesmo quando ningu\u00e9m espera bondade ou quando existe diferen\u00e7a entre povos.',
                 words: ['ESTRADA', 'HOMEM', 'FERIDO', 'AJUDA', 'SAMARITANO', 'OLEO', 'VINHO', 'CUIDADO', 'PROXIMO', 'AMOR']
+            },
+            {
+                title: 'Josu\u00e9 e Jeric\u00f3',
+                text: 'Josu\u00e9 conduziu Israel at\u00e9 Jeric\u00f3 com obedi\u00eancia e coragem. O povo caminhou ao redor da cidade, ouviu as trombetas e esperou o momento certo. Quando o som ecoou, as muralhas ca\u00edram e todos lembraram que a confian\u00e7a guia passos dif\u00edceis.',
+                words: ['JOSUE', 'ISRAEL', 'JERICO', 'CORAGEM', 'POVO', 'CIDADE', 'TROMBETAS', 'MURALHAS', 'CONFIANCA', 'PASSOS']
+            },
+            {
+                title: 'Ester no pal\u00e1cio',
+                text: 'Ester viveu no pal\u00e1cio e precisou falar com o rei para proteger seu povo. Com sabedoria, jejum e coragem, ela preparou um plano cuidadoso. Sua atitude mostrou que uma escolha firme pode defender vidas e transformar um momento de perigo em livramento.',
+                words: ['ESTER', 'PALACIO', 'REI', 'POVO', 'SABEDORIA', 'JEJUM', 'CORAGEM', 'PLANO', 'VIDAS', 'PERIGO']
+            },
+            {
+                title: 'Jonas e N\u00ednive',
+                text: 'Jonas tentou fugir da miss\u00e3o, mas uma tempestade mudou o caminho. Depois de passar pelo peixe, ele chegou a N\u00ednive e anunciou arrependimento. A cidade ouviu a mensagem, mudou atitudes e aprendeu sobre miseric\u00f3rdia, obedi\u00eancia e segunda chance.',
+                words: ['JONAS', 'MISSAO', 'TEMPESTADE', 'CAMINHO', 'PEIXE', 'NINIVE', 'CIDADE', 'MENSAGEM', 'MUDOU', 'CHANCE']
+            },
+            {
+                title: 'Maria e o anjo',
+                text: 'Maria recebeu a visita de um anjo e ouviu uma not\u00edcia surpreendente. Mesmo sem entender tudo, respondeu com f\u00e9 e humildade. A promessa trouxe esperan\u00e7a, alegria e um novo come\u00e7o para muitas pessoas que aguardavam consolo.',
+                words: ['MARIA', 'VISITA', 'ANJO', 'NOTICIA', 'HUMILDADE', 'PROMESSA', 'ESPERANCA', 'ALEGRIA', 'COMECO', 'CONSOLO']
+            },
+            {
+                title: 'Pedro no mar',
+                text: 'Pedro viu Jesus sobre o mar e pediu para caminhar tamb\u00e9m. Enquanto olhava para o Mestre, avan\u00e7ou com coragem; quando reparou no vento, sentiu medo. Jesus estendeu a m\u00e3o, ensinando confian\u00e7a, f\u00e9 e foco durante a tempestade.',
+                words: ['PEDRO', 'JESUS', 'MAR', 'CAMINHAR', 'MESTRE', 'CORAGEM', 'VENTO', 'MEDO', 'CONFIANCA', 'TEMPESTADE']
             }
         ]
     },
@@ -64,6 +89,31 @@ const RAW_KNOWLEDGE_THEMES = {
                 title: 'Mesopot\u00e2mia escrita',
                 text: 'Na Mesopot\u00e2mia, rios como Tigre e Eufrates ajudaram cidades a nascer em terras f\u00e9rteis. A escrita cuneiforme registrou com\u00e9rcio, leis e hist\u00f3rias em placas de argila usadas por escribas. Essa regi\u00e3o preservou alguns dos registros urbanos mais antigos conhecidos.',
                 words: ['MESOPOTAMIA', 'RIOS', 'TIGRE', 'EUFRATES', 'CIDADES', 'ESCRITA', 'CUNEIFORME', 'COMERCIO', 'LEIS', 'HISTORIAS']
+            },
+            {
+                title: 'Fen\u00edcios navegadores',
+                text: 'Os fen\u00edcios viveram em cidades costeiras e ficaram conhecidos como navegadores habilidosos. Seus barcos cruzavam o mar levando tecidos, madeira e vidro para diferentes portos. O alfabeto ajudou comerciantes a registrar acordos e espalhou ideias por muitas rotas.',
+                words: ['FENICIOS', 'CIDADES', 'COSTEIRAS', 'NAVEGADORES', 'BARCOS', 'MAR', 'TECIDOS', 'MADEIRA', 'ALFABETO', 'ROTAS']
+            },
+            {
+                title: 'China do papel',
+                text: 'Na China antiga, artes\u00e3os aperfei\u00e7oaram o papel e facilitaram o registro de ideias. Dinastias organizaram estradas, muralhas, agricultura e escolas para governar grandes territ\u00f3rios. Inven\u00e7\u00f5es como b\u00fassola e seda mostram criatividade, paci\u00eancia e observa\u00e7\u00e3o.',
+                words: ['CHINA', 'PAPEL', 'IDEIAS', 'DINASTIAS', 'ESTRADAS', 'MURALHAS', 'ESCOLAS', 'BUSSOLA', 'SEDA', 'CRIATIVIDADE']
+            },
+            {
+                title: 'Persas e estradas',
+                text: 'O imp\u00e9rio persa ligou regi\u00f5es distantes com estradas, mensageiros e postos de descanso. Reis administravam povos diversos, respeitando costumes locais enquanto cobravam tributos. A comunica\u00e7\u00e3o r\u00e1pida ajudava ordens, com\u00e9rcio e defesa a atravessar longas dist\u00e2ncias.',
+                words: ['PERSA', 'REGIOES', 'ESTRADAS', 'MENSAGEIROS', 'REIS', 'POVOS', 'COSTUMES', 'TRIBUTOS', 'COMERCIO', 'DEFESA']
+            },
+            {
+                title: 'Incas nas montanhas',
+                text: 'Os incas criaram caminhos pelas montanhas e usaram terra\u00e7os para plantar em encostas. Mensageiros percorriam trilhas levando not\u00edcias entre cidades. Pontes, pedras ajustadas e armaz\u00e9ns revelam organiza\u00e7\u00e3o, engenharia e respeito ao relevo dos Andes.',
+                words: ['INCAS', 'CAMINHOS', 'MONTANHAS', 'TERRACOS', 'PLANTAR', 'TRILHAS', 'CIDADES', 'PONTES', 'PEDRAS', 'ANDES']
+            },
+            {
+                title: 'Vikings no mar',
+                text: 'Os vikings navegavam por mares frios usando barcos leves e resistentes. Exploraram ilhas, rios e costas distantes, combinando com\u00e9rcio, viagens e batalhas. Suas sagas guardaram mem\u00f3rias de chefes, fam\u00edlias, coragem e adapta\u00e7\u00e3o a terras novas.',
+                words: ['VIKINGS', 'MARES', 'BARCOS', 'ILHAS', 'RIOS', 'COSTAS', 'COMERCIO', 'VIAGENS', 'SAGAS', 'CORAGEM']
             }
         ]
     },
@@ -97,6 +147,31 @@ const RAW_KNOWLEDGE_THEMES = {
                 title: 'Taj Mahal',
                 text: 'O Taj Mahal foi feito em m\u00e1rmore claro, com detalhes delicados e grande equil\u00edbrio visual. Jardins, c\u00fapulas e reflexos na \u00e1gua formam um monumento de amor na \u00cdndia. A obra \u00e9 admirada pela simetria, pela decora\u00e7\u00e3o e pelo cuidado com a paisagem.',
                 words: ['TAJ', 'MAHAL', 'MARMORE', 'JARDINS', 'CUPULAS', 'REFLEXOS', 'AGUA', 'MONUMENTO', 'AMOR', 'INDIA']
+            },
+            {
+                title: 'Cristo Redentor',
+                text: 'O Cristo Redentor fica no alto do Corcovado, olhando a cidade do Rio de Janeiro. A est\u00e1tua tem bra\u00e7os abertos e recebe visitantes de muitos pa\u00edses. Entre montanhas, mar e floresta, tornou-se s\u00edmbolo de acolhimento e beleza.',
+                words: ['CRISTO', 'REDENTOR', 'CORCOVADO', 'CIDADE', 'RIO', 'JANEIRO', 'ESTATUA', 'BRACOS', 'MONTANHAS', 'BELEZA']
+            },
+            {
+                title: 'Pir\u00e2mides de Giz\u00e9',
+                text: 'As pir\u00e2mides de Giz\u00e9 foram erguidas com blocos de pedra e planejamento cuidadoso. T\u00famulos, c\u00e2maras e corredores mostram conhecimento de engenharia. Mesmo ap\u00f3s muitos s\u00e9culos, essas constru\u00e7\u00f5es continuam ligadas ao mist\u00e9rio, ao deserto e aos fara\u00f3s.',
+                words: ['PIRAMIDES', 'GIZE', 'BLOCOS', 'PEDRA', 'TUMULOS', 'CAMARAS', 'CORREDORES', 'ENGENHARIA', 'DESERTO', 'FARAOS']
+            },
+            {
+                title: 'Angkor Wat',
+                text: 'Angkor Wat surgiu no Camboja como um grande templo cercado por torres, galerias e \u00e1gua. Suas paredes guardam relevos com cenas religiosas e hist\u00f3ricas. A constru\u00e7\u00e3o impressiona pelo tamanho, pela simetria e pela liga\u00e7\u00e3o com a paisagem.',
+                words: ['ANGKOR', 'WAT', 'CAMBOJA', 'TEMPLO', 'TORRES', 'GALERIAS', 'AGUA', 'PAREDES', 'RELEVOS', 'SIMETRIA']
+            },
+            {
+                title: 'Chich\u00e9n Itz\u00e1',
+                text: 'Chich\u00e9n Itz\u00e1 foi uma cidade maia com pir\u00e2mide, pra\u00e7as e observat\u00f3rio. A arquitetura revela aten\u00e7\u00e3o ao sol, \u00e0s sombras e aos ciclos do tempo. O lugar une ci\u00eancia, religi\u00e3o, jogos e mem\u00f3ria de uma cultura poderosa.',
+                words: ['CHICHEN', 'ITZA', 'CIDADE', 'MAIA', 'PIRAMIDE', 'PRACAS', 'SOL', 'SOMBRAS', 'CICLOS', 'CULTURA']
+            },
+            {
+                title: 'Stonehenge',
+                text: 'Stonehenge re\u00fane grandes pedras em c\u00edrculo sobre uma plan\u00edcie da Inglaterra. Pesquisadores estudam seu alinhamento com o sol e poss\u00edveis cerim\u00f4nias antigas. O monumento desperta perguntas sobre transporte, constru\u00e7\u00e3o, calend\u00e1rio e observa\u00e7\u00e3o do c\u00e9u.',
+                words: ['STONEHENGE', 'PEDRAS', 'CIRCULO', 'INGLATERRA', 'SOL', 'CERIMONIAS', 'MONUMENTO', 'TRANSPORTE', 'CALENDARIO', 'CEU']
             }
         ]
     },
@@ -130,6 +205,31 @@ const RAW_KNOWLEDGE_THEMES = {
                 title: 'Bambu veloz',
                 text: 'Alguns bambus crescem muito r\u00e1pido em poucos dias, principalmente em clima favor\u00e1vel. Suas hastes leves e resistentes servem para casas, papel e alimento em muitas regi\u00f5es. Por crescer depressa, o bambu tamb\u00e9m \u00e9 estudado como material renov\u00e1vel.',
                 words: ['BAMBUS', 'CRESCEM', 'RAPIDO', 'DIAS', 'HASTES', 'LEVES', 'RESISTENTES', 'CASAS', 'PAPEL', 'ALIMENTO']
+            },
+            {
+                title: 'Camale\u00e3o colorido',
+                text: 'O camale\u00e3o muda cor por causa de c\u00e9lulas especiais na pele. A mudan\u00e7a ajuda na comunica\u00e7\u00e3o, na temperatura e em alguns momentos de defesa. Seus olhos se movem separados, permitindo observar insetos, galhos e perigos ao redor.',
+                words: ['CAMALEAO', 'COR', 'CELULAS', 'PELE', 'MUDANCA', 'COMUNICACAO', 'TEMPERATURA', 'DEFESA', 'OLHOS', 'INSETOS']
+            },
+            {
+                title: 'Formigas organizadas',
+                text: 'Formigas vivem em col\u00f4nias organizadas, com tarefas diferentes para cada grupo. Algumas buscam alimento, outras cuidam dos ovos e defendem o ninho. Trilhas de cheiro ajudam a guiar companheiras at\u00e9 folhas, sementes ou pequenos restos.',
+                words: ['FORMIGAS', 'COLONIAS', 'TAREFAS', 'GRUPO', 'ALIMENTO', 'OVOS', 'NINHO', 'TRILHAS', 'CHEIRO', 'SEMENTES']
+            },
+            {
+                title: 'Gelo flutua',
+                text: 'O gelo flutua porque fica menos denso que a \u00e1gua l\u00edquida. Essa diferen\u00e7a protege lagos no frio, criando uma camada congelada por cima enquanto a vida continua abaixo. Peixes e plantas dependem desse equil\u00edbrio natural.',
+                words: ['GELO', 'FLUTUA', 'DENSO', 'AGUA', 'LAGOS', 'FRIO', 'CAMADA', 'VIDA', 'PEIXES', 'PLANTAS']
+            },
+            {
+                title: 'Morcegos e som',
+                text: 'Morcegos usam sons agudos para perceber o ambiente durante o voo. O eco retorna depois de bater em insetos, paredes ou \u00e1rvores, ajudando na ca\u00e7a e na orienta\u00e7\u00e3o. Essa habilidade funciona mesmo em noites muito escuras.',
+                words: ['MORCEGOS', 'SONS', 'AMBIENTE', 'VOO', 'ECO', 'INSETOS', 'PAREDES', 'ARVORES', 'CACA', 'NOITES']
+            },
+            {
+                title: 'Sementes viajantes',
+                text: 'Muitas sementes viajam pelo vento, pela \u00e1gua ou presas em animais. Assim, plantas alcan\u00e7am novos lugares e espalham suas esp\u00e9cies. Algumas t\u00eam asas leves, frutos doces ou ganchos pequenos que ajudam nessa jornada.',
+                words: ['SEMENTES', 'VENTO', 'AGUA', 'ANIMAIS', 'PLANTAS', 'LUGARES', 'ESPECIES', 'ASAS', 'FRUTOS', 'JORNADA']
             }
         ]
     }

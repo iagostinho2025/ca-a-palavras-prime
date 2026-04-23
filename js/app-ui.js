@@ -1,13 +1,65 @@
 import { Progression } from './progression.js';
-import { CAMPAIGN_MAX_LEVEL } from './campaign-levels.js';
 import { formatWalletAmount } from './app-utils.js';
-import { KNOWLEDGE_WORD_COLORS, WORD_COLORS } from './app-constants.js';
+import { CAMPAIGN_MAX_LEVEL, KNOWLEDGE_WORD_COLORS, WORD_COLORS } from './app-constants.js';
 import { normalizeText, repairMojibake, sanitizeLabel } from './content-utils.js';
 
 export const uiMethods = {
     toggleDrawer() {},
 
+    getCellByCoord(coord) {
+        return this.boardCellMap.get(coord) || null;
+    },
+
+    cacheWordChips() {
+        this.wordChipMap = new Map();
+        document.querySelectorAll('.word-chip[data-w]').forEach((chip) => {
+            const word = chip.dataset.w;
+            if (!word) return;
+            const bucket = this.wordChipMap.get(word) || [];
+            bucket.push(chip);
+            this.wordChipMap.set(word, bucket);
+        });
+    },
+
+    computeWordCoords(word) {
+        const grid = this.game?.grid || [];
+        const size = this.game?.size || grid.length;
+        const directions = [
+            [0, 1], [1, 0], [1, 1], [-1, 1],
+            [0, -1], [-1, 0], [-1, -1], [1, -1]
+        ];
+
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                for (const [dr, dc] of directions) {
+                    const coords = [];
+                    let matches = true;
+                    for (let i = 0; i < word.length; i++) {
+                        const rr = r + dr * i;
+                        const cc = c + dc * i;
+                        if (rr < 0 || rr >= size || cc < 0 || cc >= size || grid[rr][cc] !== word[i]) {
+                            matches = false;
+                            break;
+                        }
+                        coords.push(`${rr},${cc}`);
+                    }
+                    if (matches) return coords;
+                }
+            }
+        }
+
+        return [];
+    },
+
+    rebuildWordCoordsCache() {
+        this.wordCoordsCache = new Map();
+        (this.game?.words || []).forEach((word) => {
+            this.wordCoordsCache.set(word, this.computeWordCoords(word));
+        });
+    },
+
     showScreen(id) {
+        this.ensureDeferredUI?.(id);
         document.querySelectorAll('.screen').forEach((screen) => screen.classList.add('hidden'));
         const screen = document.getElementById(`screen-${id}`);
         if (screen) {
@@ -30,7 +82,11 @@ export const uiMethods = {
         document.getElementById('knowledge-game-story')?.classList.add('hidden');
         this.updateBottomNav(id);
         if (id === 'menu') this.updateMenuUI();
-        if (id === 'prime-event') this.renderPrimeEventScreen();
+        if (id === 'prime-event') {
+            Promise.resolve(this.renderPrimeEventScreen?.()).catch((error) => {
+                console.error(error);
+            });
+        }
     },
 
     resetPlayState(levelKey, totalWords) {
@@ -87,8 +143,7 @@ export const uiMethods = {
         const coords = this.findWordCoords(target);
         if (!coords.length) return;
 
-        const [r, c] = coords[0].split(',');
-        const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+        const cell = this.getCellByCoord(coords[0]);
         if (!cell) return;
 
         this.clearKnowledgeAutoAssistVisual();
@@ -196,15 +251,20 @@ export const uiMethods = {
     spawnWordParticles(coords) {
         const board = document.getElementById('letter-grid');
         if (!board || !coords.length) return;
-        const [r, c] = coords[Math.floor(coords.length / 2)].split(',');
-        const cell = board.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+        const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+            || document.body.classList.contains('reduced-motion');
+        if (prefersReducedMotion) return;
+
+        const isCompactScreen = window.matchMedia?.('(max-width: 768px)')?.matches;
+        const cell = this.getCellByCoord(coords[Math.floor(coords.length / 2)]);
         if (!cell) return;
         const rect = cell.getBoundingClientRect();
         const boardRect = board.getBoundingClientRect();
         const x = rect.left - boardRect.left + rect.width / 2;
         const y = rect.top - boardRect.top + rect.height / 2;
 
-        for (let i = 0; i < 6; i++) {
+        const particleCount = isCompactScreen ? 4 : 6;
+        for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('i');
             particle.className = 'word-particle';
             particle.style.left = `${x}px`;
@@ -228,8 +288,7 @@ export const uiMethods = {
         if (!target) return;
         const coords = this.findWordCoords(target);
         if (!coords.length) return;
-        const [r, c] = coords[0].split(',');
-        const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+        const cell = this.getCellByCoord(coords[0]);
         if (!cell) return;
 
         this.playState.hintsLeft--;
@@ -265,7 +324,7 @@ export const uiMethods = {
         for (let r = middleR - radius; r <= middleR + radius; r++) {
             for (let c = middleC - radius; c <= middleC + radius; c++) {
                 if (r < 0 || c < 0 || r >= size || c >= size) continue;
-                const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+                const cell = this.getCellByCoord(`${r},${c}`);
                 if (cell) cells.push(cell);
             }
         }
@@ -292,8 +351,7 @@ export const uiMethods = {
         });
 
         const muted = [];
-        document.querySelectorAll('.cell').forEach((cell) => {
-            const coord = `${cell.dataset.r},${cell.dataset.c}`;
+        this.boardCellMap.forEach((cell, coord) => {
             if (wordCoords.has(coord)) return;
             cell.classList.add('noise-muted');
             muted.push(cell);
@@ -307,33 +365,11 @@ export const uiMethods = {
     },
 
     findWordCoords(word) {
-        const grid = this.game?.grid || [];
-        const size = this.game?.size || grid.length;
-        const directions = [
-            [0, 1], [1, 0], [1, 1], [-1, 1],
-            [0, -1], [-1, 0], [-1, -1], [1, -1]
-        ];
-
-        for (let r = 0; r < size; r++) {
-            for (let c = 0; c < size; c++) {
-                for (const [dr, dc] of directions) {
-                    const coords = [];
-                    let matches = true;
-                    for (let i = 0; i < word.length; i++) {
-                        const rr = r + dr * i;
-                        const cc = c + dc * i;
-                        if (rr < 0 || rr >= size || cc < 0 || cc >= size || grid[rr][cc] !== word[i]) {
-                            matches = false;
-                            break;
-                        }
-                        coords.push(`${rr},${cc}`);
-                    }
-                    if (matches) return coords;
-                }
-            }
+        if (!word) return [];
+        if (!this.wordCoordsCache.has(word)) {
+            this.wordCoordsCache.set(word, this.computeWordCoords(word));
         }
-
-        return [];
+        return this.wordCoordsCache.get(word) || [];
     },
 
     toggleGameSound() {
@@ -433,16 +469,19 @@ export const uiMethods = {
     },
 
     highlightCellsDOM(coords) {
-        document.querySelectorAll('.cell.selected').forEach((element) => element.classList.remove('selected'));
+        this.selectedCellElements.forEach((element) => element.classList.remove('selected'));
+        this.selectedCellElements = [];
         coords.forEach((key) => {
-            const [r, c] = key.split(',');
-            const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
-            if (cell) cell.classList.add('selected');
+            const cell = this.getCellByCoord(key);
+            if (!cell) return;
+            cell.classList.add('selected');
+            this.selectedCellElements.push(cell);
         });
     },
 
     clearHighlightDOM() {
-        const selected = document.querySelectorAll('.cell.selected');
+        const selected = [...this.selectedCellElements];
+        this.selectedCellElements = [];
         selected.forEach((element) => element.classList.add('selection-error'));
         this.setGameFeedback('Quase. Tente outro caminho');
         this.updateGameHUD();
@@ -462,8 +501,7 @@ export const uiMethods = {
         const palette = knowledgePalette?.length ? knowledgePalette : WORD_COLORS;
         const color = palette[Math.max(0, wordIndex) % palette.length];
         coords.forEach((key, index) => {
-            const [r, c] = key.split(',');
-            const cell = document.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+            const cell = this.getCellByCoord(key);
             if (cell) {
                 cell.classList.remove('selected');
                 cell.classList.add('found');
@@ -475,6 +513,7 @@ export const uiMethods = {
                 setTimeout(() => cell.classList.remove('just-found'), 500);
             }
         });
+        this.selectedCellElements = [];
         this.spawnWordParticles(coords);
         this.highlightWordDOM(word, color);
         this.vibrate(18);
@@ -491,6 +530,8 @@ export const uiMethods = {
         board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
         board.dataset.size = String(size);
         board.innerHTML = '';
+        this.boardCellMap = new Map();
+        this.selectedCellElements = [];
         grid.forEach((row, r) => {
             row.forEach((char, c) => {
                 const cell = document.createElement('div');
@@ -498,9 +539,11 @@ export const uiMethods = {
                 cell.textContent = char;
                 cell.dataset.r = r;
                 cell.dataset.c = c;
+                this.boardCellMap.set(`${r},${c}`, cell);
                 board.appendChild(cell);
             });
         });
+        this.rebuildWordCoordsCache();
         this.attachInputEvents(board);
     },
 
@@ -569,7 +612,11 @@ export const uiMethods = {
             finishSelection();
         };
 
-        window.addEventListener('resize', updateGridMetrics, { passive: true });
+        if (this.boardResizeHandler) {
+            window.removeEventListener('resize', this.boardResizeHandler);
+        }
+        this.boardResizeHandler = updateGridMetrics;
+        window.addEventListener('resize', this.boardResizeHandler, { passive: true });
         updateGridMetrics();
     },
 
@@ -584,6 +631,7 @@ export const uiMethods = {
                 <span>${word}</span>
             </div>
         `).join('');
+        this.cacheWordChips();
         this.playState.totalWords = words.length;
         this.playState.foundWords = 0;
         this.updateGameHUD();
@@ -634,13 +682,15 @@ export const uiMethods = {
                 </div>
             </div>
         `;
+        this.cacheWordChips();
         this.playState.totalWords = words.length;
         this.playState.foundWords = 0;
         this.updateGameHUD();
     },
 
     highlightWordDOM(word, color = null) {
-        document.querySelectorAll(`.word-chip[data-w="${word}"]`).forEach((chip) => {
+        const chips = this.wordChipMap.get(word) || [];
+        chips.forEach((chip) => {
             if (color) {
                 chip.style.setProperty('--word-start', color.start);
                 chip.style.setProperty('--word-end', color.end);

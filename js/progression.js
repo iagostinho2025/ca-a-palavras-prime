@@ -1,6 +1,6 @@
 /* js/progression.js */
 
-import { CAMPAIGN_MAX_LEVEL, getCampaignLevelConfig } from './campaign-levels.js';
+import { CAMPAIGN_MAX_LEVEL } from './app-constants.js';
 
 const DEFAULT_DATA = {
     xp: 0,
@@ -39,10 +39,6 @@ export const Progression = {
     },
 
     // --- CONFIGURAÇÃO DO NÍVEL ---
-
-    getLevelConfig(levelId) {
-        return getCampaignLevelConfig(levelId);
-    },
 
     // --- CÁLCULOS DE RESULTADO (MATH) ---
 

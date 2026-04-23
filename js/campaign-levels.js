@@ -1,6 +1,7 @@
+import { CAMPAIGN_MAX_LEVEL as CAMPAIGN_MAX_LEVEL_VALUE } from './app-constants.js';
 import { sanitizeLabel, sanitizeWordList } from './content-utils.js';
 
-export const CAMPAIGN_MAX_LEVEL = 100;
+export const CAMPAIGN_MAX_LEVEL = CAMPAIGN_MAX_LEVEL_VALUE;
 
 const RAW_CAMPAIGN_LEVELS = [
     { id: 1, theme: 'Animais domésticos', gridSize: 8, wordCount: 5, allowedDirections: ['horizontal'], words: ['GATO', 'CAO', 'COELHO', 'HAMSTER', 'PEIXE', 'PASSARO', 'PATO', 'RATO', 'BURRO', 'PONEI'] },

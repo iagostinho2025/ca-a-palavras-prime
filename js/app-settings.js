@@ -1,12 +1,12 @@
 import { SoundFX } from './audio.js';
 import { Progression } from './progression.js';
-import { CAMPAIGN_MAX_LEVEL } from './campaign-levels.js';
 import { escapeHTML } from './app-utils.js';
 import {
     ACHIEVEMENTS,
     AVATARS,
     BOARD_THEME_BY_TIER,
     BOARD_THEMES,
+    CAMPAIGN_MAX_LEVEL,
     DEFAULT_PLAYER_NAME,
     DEFAULT_SETTINGS,
     SETTINGS_KEY
@@ -58,12 +58,14 @@ export const settingsMethods = {
     },
 
     openSettingsScreen() {
+        this.ensureDeferredUI('settings');
         this.updateSettingsSummary();
         this.syncSettingsUI();
         this.showScreen('settings');
     },
 
     openProfileScreen() {
+        this.ensureDeferredUI('profile');
         this.updateProfileSummary();
         this.renderAvatarOptions();
         this.renderBoardThemeOptions();
@@ -210,6 +212,7 @@ export const settingsMethods = {
     },
 
     openAchievementsScreen() {
+        this.ensureDeferredUI('achievements');
         this.renderAchievements();
         this.showScreen('achievements');
     },

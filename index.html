@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#4db7eb">
     <title>Word Hunter Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    </noscript>
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
 </head>
@@ -80,219 +85,6 @@
 
         </div>
 
-        <div id="screen-settings" class="screen hidden">
-            <div class="settings-shell">
-                <div class="settings-topbar">
-                    <div>
-                        <span>Central do jogador</span>
-                        <strong>Ajustes</strong>
-                    </div>
-                </div>
-
-                <div class="settings-hero">
-                    <div>
-                        <span>Ajustes</span>
-                        <h2>Deixe o jogo do seu jeito.</h2>
-                        <p>Conforto visual, som e dados em uma experi&ecirc;ncia simples de ajustar.</p>
-                    </div>
-                </div>
-
-                <section class="settings-section" aria-labelledby="settings-play-title">
-                    <div class="settings-section-title">
-                        <span>Experi&ecirc;ncia</span>
-                        <h3 id="settings-play-title">Durante a partida</h3>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon sound">&#9835;</div>
-                        <div class="setting-copy">
-                            <strong>Sons do jogo</strong>
-                            <span>Efeitos ao selecionar, acertar e completar fases.</span>
-                        </div>
-                        <label class="switch">
-                            <input id="setting-sound" type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon haptic">&asymp;</div>
-                        <div class="setting-copy">
-                            <strong>Vibra&ccedil;&atilde;o leve</strong>
-                            <span>Resposta t&aacute;til curta ao encontrar uma palavra.</span>
-                        </div>
-                        <label class="switch">
-                            <input id="setting-haptics" type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-
-                    <div class="setting-card setting-card-stack">
-                        <div class="setting-row">
-                            <div class="setting-icon text">Aa</div>
-                            <div class="setting-copy">
-                                <strong>Tamanho das letras</strong>
-                                <span>Ajuste a leitura do tabuleiro e da lista.</span>
-                            </div>
-                        </div>
-                        <div class="segmented-control" role="group" aria-label="Tamanho das letras">
-                            <button type="button" data-font-size="normal">Normal</button>
-                            <button type="button" data-font-size="large">Grande</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="settings-section" aria-labelledby="settings-access-title">
-                    <div class="settings-section-title">
-                        <span>Acessibilidade</span>
-                        <h3 id="settings-access-title">Conforto visual</h3>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon contrast">&#9680;</div>
-                        <div class="setting-copy">
-                            <strong>Contraste refor&ccedil;ado</strong>
-                            <span>Melhora leitura em bot&otilde;es, letras e marcadores.</span>
-                        </div>
-                        <label class="switch">
-                            <input id="setting-contrast" type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-
-                    <div class="setting-card">
-                        <div class="setting-icon motion">&swarr;</div>
-                        <div class="setting-copy">
-                            <strong>Reduzir anima&ccedil;&otilde;es</strong>
-                            <span>Movimentos mais discretos em telas e feedbacks.</span>
-                        </div>
-                        <label class="switch">
-                            <input id="setting-reduce-motion" type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-                </section>
-
-                <section class="settings-section" aria-labelledby="settings-data-title">
-                    <div class="settings-section-title">
-                        <span>Dados</span>
-                        <h3 id="settings-data-title">Progresso e privacidade</h3>
-                    </div>
-
-                    <div class="settings-summary">
-                        <div>
-                            <span>N&iacute;vel</span>
-                            <strong id="settings-level">1</strong>
-                        </div>
-                        <div>
-                            <span>Fase</span>
-                            <strong id="settings-stage">1</strong>
-                        </div>
-                        <div>
-                            <span>XP</span>
-                            <strong id="settings-xp">0</strong>
-                        </div>
-                    </div>
-
-                    <button class="settings-action" id="btn-export-progress" type="button">
-                        <span>Copiar resumo do progresso</span>
-                        <strong>Seguro</strong>
-                    </button>
-                    <button class="settings-action danger" id="btn-reset-progress" type="button">
-                        <span>Reiniciar progresso</span>
-                        <strong>Toque 2x</strong>
-                    </button>
-                </section>
-            </div>
-        </div>
-
-        <div id="screen-profile" class="screen hidden">
-            <div class="profile-shell">
-                <div class="header-compact">
-                    <button class="btn-icon" id="btn-close-profile" type="button" aria-label="Voltar">&larr;</button>
-                    <h2>Perfil</h2>
-                    <div class="header-spacer"></div>
-                </div>
-
-                <section class="profile-hero" aria-labelledby="profile-title">
-                    <img id="profile-avatar-preview" src="assets/images/avatar/avatar-01.webp" alt="Avatar selecionado">
-                    <div class="profile-hero-copy">
-                        <span>Jogador</span>
-                        <h3 id="profile-title">Mestre das Palavras</h3>
-                        <p>N&iacute;vel <span id="profile-level">1</span> &middot; Fase <span id="profile-stage">1</span></p>
-                    </div>
-                </section>
-
-                <section class="profile-section" aria-labelledby="profile-name-title">
-                    <div class="settings-section-title">
-                        <span>Nome</span>
-                        <h3 id="profile-name-title">Como voc&ecirc; quer aparecer?</h3>
-                    </div>
-                    <label class="profile-name-field">
-                        <span>Nome do jogador</span>
-                        <input id="profile-name-input" type="text" maxlength="24" autocomplete="nickname" placeholder="Mestre das Palavras">
-                    </label>
-                </section>
-
-                <section class="profile-section" aria-labelledby="avatar-picker-title">
-                    <div class="settings-section-title">
-                        <span>Avatar</span>
-                        <h3 id="avatar-picker-title">Escolha seu rosto</h3>
-                    </div>
-                    <div id="avatar-grid" class="avatar-grid"></div>
-                </section>
-
-                <section class="profile-section" aria-labelledby="board-theme-title">
-                    <div class="settings-section-title">
-                        <span>Tabuleiro</span>
-                        <h3 id="board-theme-title">Tema da gameplay</h3>
-                    </div>
-                    <div id="board-theme-grid" class="board-theme-grid"></div>
-                </section>
-            </div>
-        </div>
-
-        <div id="screen-achievements" class="screen hidden">
-            <div class="achievements-shell">
-                <div class="header-compact">
-                    <button class="btn-icon" id="btn-close-achievements" type="button" aria-label="Voltar">&larr;</button>
-                    <h2>Conquistas</h2>
-                    <div class="header-spacer"></div>
-                </div>
-
-                <section class="achievements-hero" aria-labelledby="achievements-title">
-                    <div>
-                        <span>Jornada</span>
-                        <h3 id="achievements-title">Seu progresso em marcos.</h3>
-                        <p id="achievements-summary">Continue jogando para desbloquear novas conquistas.</p>
-                    </div>
-                </section>
-
-                <section class="achievements-stats" aria-label="Resumo de conquistas">
-                    <div>
-                        <span>Fases</span>
-                        <strong id="achievements-levels">0</strong>
-                    </div>
-                    <div>
-                        <span>Estrelas</span>
-                        <strong id="achievements-stars">0</strong>
-                    </div>
-                    <div>
-                        <span>Trilhas</span>
-                        <strong id="achievements-knowledge">0</strong>
-                    </div>
-                </section>
-
-                <section class="settings-section" aria-labelledby="achievements-list-title">
-                    <div class="settings-section-title">
-                        <span>Marcos</span>
-                        <h3 id="achievements-list-title">Pr&oacute;ximos objetivos</h3>
-                    </div>
-                    <div id="achievements-list" class="achievements-list"></div>
-                </section>
-            </div>
-        </div>
-
         <nav class="bottom-nav" id="bottom-nav" aria-label="Navega&ccedil;&atilde;o principal">
             <button class="nav-item" id="btn-nav-shop" type="button"><img src="assets/images/ui/footer/icon-shop.png" alt=""><strong>Loja</strong></button>
             <button class="nav-item" id="btn-nav-themes" type="button"><img src="assets/images/ui/footer/icon-themes.png" alt=""><strong>Temas</strong></button>
@@ -300,86 +92,6 @@
             <button class="nav-item" id="btn-nav-stats" type="button"><img src="assets/images/ui/footer/icon-achievements.png" alt=""><strong>Conquistas</strong></button>
             <button class="nav-item" id="btn-nav-settings" type="button"><img src="assets/images/ui/footer/icon-settings.png" alt=""><strong>Ajustes</strong></button>
         </nav>
-
-        <div id="screen-themes-select" class="screen hidden">
-            <div class="header-compact">
-                <button class="btn-icon" id="btn-close-themes" type="button" aria-label="Voltar">&larr;</button>
-                <h2>Escolha um Tema</h2>
-                <div class="header-spacer"></div>
-            </div>
-            <div id="themes-grid" class="themes-grid"></div>
-            <div id="themes-empty" class="empty-state hidden">
-                <div class="empty-asset">&#128269;</div>
-                <h3>Nenhum tema dispon&iacute;vel</h3>
-                <p>Volte mais tarde para novas categorias.</p>
-            </div>
-        </div>
-        <div id="screen-knowledge" class="screen hidden">
-            <div class="knowledge-sprite-layer">
-                <button class="knowledge-sprite-button sprite-biblical" type="button" data-knowledge-theme="biblical" aria-label="Abrir trilha Bíblico">
-                    <img class="knowledge-sprite" src="assets/images/ui/templo_biblico.webp" alt="">
-                </button>
-                <button class="knowledge-sprite-button sprite-civilizations" type="button" data-knowledge-theme="civilizations" aria-label="Abrir trilha Civilizações antigas">
-                    <img class="knowledge-sprite" src="assets/images/ui/civilizacoes.webp" alt="">
-                </button>
-                <button class="knowledge-sprite-button sprite-curiosities" type="button" data-knowledge-theme="curiosities" aria-label="Abrir trilha Curiosidades">
-                    <img class="knowledge-sprite" src="assets/images/ui/curiosidades.webp" alt="">
-                </button>
-                <button class="knowledge-sprite-button sprite-wonders" type="button" data-knowledge-theme="wonders" aria-label="Abrir trilha Maravilhas do mundo">
-                    <img class="knowledge-sprite" src="assets/images/ui/maravilhas.webp" alt="">
-                </button>
-            </div>
-            <div class="header-compact">
-                <div class="header-spacer"></div>
-                <div class="header-spacer"></div>
-            </div>
-        </div>
-
-        <div id="screen-prime-event" class="screen hidden"> 
-            <div class="prime-shell">
-                <div class="header-compact">
-                    <button class="btn-icon" id="btn-close-prime-event" type="button" aria-label="Voltar">&larr;</button>
-                    <h2>Evento Prime</h2>
-                    <div class="header-spacer"></div>
-                </div>
-
-                <section class="prime-hero" aria-labelledby="prime-title">
-                    <div class="prime-hero-copy">
-                        <span id="prime-status">Aberto agora</span>
-                        <h3 id="prime-title">Evento Prime</h3>
-                        <p id="prime-description">O mesmo tabuleiro para todos. Ven&ccedil;a pelo menor tempo.</p>
-                    </div>
-                </section>
-
-                <section class="prime-stats" aria-label="Resumo do evento">
-                    <div>
-                        <span>Tema</span>
-                        <strong id="prime-theme">Palavras de Elite</strong>
-                    </div>
-                    <div>
-                        <span>Melhor tempo</span>
-                        <strong id="prime-best-time">--:--</strong>
-                    </div>
-                    <div>
-                        <span>Tentativas</span>
-                        <strong id="prime-attempts">0</strong>
-                    </div>
-                </section>
-
-                <button class="prime-play-btn" id="btn-start-prime-event" type="button">
-                    <span>Jogar Evento Prime</span>
-                    <strong>Speedrun</strong>
-                </button>
-
-                <section class="prime-ranking-panel" aria-labelledby="prime-ranking-title">
-                    <div class="settings-section-title">
-                        <span>Ranking Global</span>
-                        <h3 id="prime-ranking-title">Top 10</h3>
-                    </div>
-                    <div id="prime-ranking-list" class="prime-ranking-list"></div>
-                </section>
-            </div>
-        </div>
 
         <div id="screen-config" class="screen hidden">
             <div class="header-compact">
@@ -615,6 +327,325 @@
         </div>
         <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
     </div>
+
+    <template id="tpl-screen-settings">
+        <div id="screen-settings" class="screen hidden">
+            <div class="settings-shell">
+                <div class="settings-topbar">
+                    <div>
+                        <span>Central do jogador</span>
+                        <strong>Ajustes</strong>
+                    </div>
+                </div>
+
+                <div class="settings-hero">
+                    <div>
+                        <span>Ajustes</span>
+                        <h2>Deixe o jogo do seu jeito.</h2>
+                        <p>Conforto visual, som e dados em uma experi&ecirc;ncia simples de ajustar.</p>
+                    </div>
+                </div>
+
+                <section class="settings-section" aria-labelledby="settings-play-title">
+                    <div class="settings-section-title">
+                        <span>Experi&ecirc;ncia</span>
+                        <h3 id="settings-play-title">Durante a partida</h3>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-icon sound">&#9835;</div>
+                        <div class="setting-copy">
+                            <strong>Sons do jogo</strong>
+                            <span>Efeitos ao selecionar, acertar e completar fases.</span>
+                        </div>
+                        <label class="switch">
+                            <input id="setting-sound" type="checkbox">
+                            <span></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-icon haptic">&asymp;</div>
+                        <div class="setting-copy">
+                            <strong>Vibra&ccedil;&atilde;o leve</strong>
+                            <span>Resposta t&aacute;til curta ao encontrar uma palavra.</span>
+                        </div>
+                        <label class="switch">
+                            <input id="setting-haptics" type="checkbox">
+                            <span></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-card setting-card-stack">
+                        <div class="setting-row">
+                            <div class="setting-icon text">Aa</div>
+                            <div class="setting-copy">
+                                <strong>Tamanho das letras</strong>
+                                <span>Ajuste a leitura do tabuleiro e da lista.</span>
+                            </div>
+                        </div>
+                        <div class="segmented-control" role="group" aria-label="Tamanho das letras">
+                            <button type="button" data-font-size="normal">Normal</button>
+                            <button type="button" data-font-size="large">Grande</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="settings-section" aria-labelledby="settings-access-title">
+                    <div class="settings-section-title">
+                        <span>Acessibilidade</span>
+                        <h3 id="settings-access-title">Conforto visual</h3>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-icon contrast">&#9680;</div>
+                        <div class="setting-copy">
+                            <strong>Contraste refor&ccedil;ado</strong>
+                            <span>Melhora leitura em bot&otilde;es, letras e marcadores.</span>
+                        </div>
+                        <label class="switch">
+                            <input id="setting-contrast" type="checkbox">
+                            <span></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-icon motion">&swarr;</div>
+                        <div class="setting-copy">
+                            <strong>Reduzir anima&ccedil;&otilde;es</strong>
+                            <span>Movimentos mais discretos em telas e feedbacks.</span>
+                        </div>
+                        <label class="switch">
+                            <input id="setting-reduce-motion" type="checkbox">
+                            <span></span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="settings-section" aria-labelledby="settings-data-title">
+                    <div class="settings-section-title">
+                        <span>Dados</span>
+                        <h3 id="settings-data-title">Progresso e privacidade</h3>
+                    </div>
+
+                    <div class="settings-summary">
+                        <div>
+                            <span>N&iacute;vel</span>
+                            <strong id="settings-level">1</strong>
+                        </div>
+                        <div>
+                            <span>Fase</span>
+                            <strong id="settings-stage">1</strong>
+                        </div>
+                        <div>
+                            <span>XP</span>
+                            <strong id="settings-xp">0</strong>
+                        </div>
+                    </div>
+
+                    <button class="settings-action" id="btn-export-progress" type="button">
+                        <span>Copiar resumo do progresso</span>
+                        <strong>Seguro</strong>
+                    </button>
+                    <button class="settings-action danger" id="btn-reset-progress" type="button">
+                        <span>Reiniciar progresso</span>
+                        <strong>Toque 2x</strong>
+                    </button>
+                </section>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-screen-profile">
+        <div id="screen-profile" class="screen hidden">
+            <div class="profile-shell">
+                <div class="header-compact">
+                    <button class="btn-icon" id="btn-close-profile" type="button" aria-label="Voltar">&larr;</button>
+                    <h2>Perfil</h2>
+                    <div class="header-spacer"></div>
+                </div>
+
+                <section class="profile-hero" aria-labelledby="profile-title">
+                    <img id="profile-avatar-preview" src="assets/images/avatar/avatar-01.webp" alt="Avatar selecionado">
+                    <div class="profile-hero-copy">
+                        <span>Jogador</span>
+                        <h3 id="profile-title">Mestre das Palavras</h3>
+                        <p>N&iacute;vel <span id="profile-level">1</span> &middot; Fase <span id="profile-stage">1</span></p>
+                    </div>
+                </section>
+
+                <section class="profile-section" aria-labelledby="profile-name-title">
+                    <div class="settings-section-title">
+                        <span>Nome</span>
+                        <h3 id="profile-name-title">Como voc&ecirc; quer aparecer?</h3>
+                    </div>
+                    <label class="profile-name-field">
+                        <span>Nome do jogador</span>
+                        <input id="profile-name-input" type="text" maxlength="24" autocomplete="nickname" placeholder="Mestre das Palavras">
+                    </label>
+                </section>
+
+                <section class="profile-section" aria-labelledby="avatar-picker-title">
+                    <div class="settings-section-title">
+                        <span>Avatar</span>
+                        <h3 id="avatar-picker-title">Escolha seu rosto</h3>
+                    </div>
+                    <div id="avatar-grid" class="avatar-grid"></div>
+                </section>
+
+                <section class="profile-section" aria-labelledby="board-theme-title">
+                    <div class="settings-section-title">
+                        <span>Tabuleiro</span>
+                        <h3 id="board-theme-title">Tema da gameplay</h3>
+                    </div>
+                    <div id="board-theme-grid" class="board-theme-grid"></div>
+                </section>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-screen-achievements">
+        <div id="screen-achievements" class="screen hidden">
+            <div class="achievements-shell">
+                <div class="header-compact">
+                    <button class="btn-icon" id="btn-close-achievements" type="button" aria-label="Voltar">&larr;</button>
+                    <h2>Conquistas</h2>
+                    <div class="header-spacer"></div>
+                </div>
+
+                <section class="achievements-hero" aria-labelledby="achievements-title">
+                    <div>
+                        <span>Jornada</span>
+                        <h3 id="achievements-title">Seu progresso em marcos.</h3>
+                        <p id="achievements-summary">Continue jogando para desbloquear novas conquistas.</p>
+                    </div>
+                </section>
+
+                <section class="achievements-stats" aria-label="Resumo de conquistas">
+                    <div>
+                        <span>Fases</span>
+                        <strong id="achievements-levels">0</strong>
+                    </div>
+                    <div>
+                        <span>Estrelas</span>
+                        <strong id="achievements-stars">0</strong>
+                    </div>
+                    <div>
+                        <span>Trilhas</span>
+                        <strong id="achievements-knowledge">0</strong>
+                    </div>
+                </section>
+
+                <section class="settings-section" aria-labelledby="achievements-list-title">
+                    <div class="settings-section-title">
+                        <span>Marcos</span>
+                        <h3 id="achievements-list-title">Pr&oacute;ximos objetivos</h3>
+                    </div>
+                    <div id="achievements-list" class="achievements-list"></div>
+                </section>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-screen-themes-select">
+        <div id="screen-themes-select" class="screen hidden">
+            <div class="header-compact">
+                <button class="btn-icon" id="btn-close-themes" type="button" aria-label="Voltar">&larr;</button>
+                <h2>Escolha um Tema</h2>
+                <div class="header-spacer"></div>
+            </div>
+            <div id="themes-grid" class="themes-grid"></div>
+            <div id="themes-empty" class="empty-state hidden">
+                <div class="empty-asset">&#128269;</div>
+                <h3>Nenhum tema dispon&iacute;vel</h3>
+                <p>Volte mais tarde para novas categorias.</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-screen-knowledge">
+        <div id="screen-knowledge" class="screen hidden">
+            <div class="knowledge-sprite-layer">
+                <button class="knowledge-sprite-button sprite-biblical" type="button" data-knowledge-theme="biblical" aria-label="Abrir trilha Bíblico">
+                    <img class="knowledge-sprite" src="assets/images/ui/templo_biblico.webp" alt="">
+                </button>
+                <button class="knowledge-sprite-button sprite-civilizations" type="button" data-knowledge-theme="civilizations" aria-label="Abrir trilha Civilizações antigas">
+                    <img class="knowledge-sprite" src="assets/images/ui/civilizacoes.webp" alt="">
+                </button>
+                <button class="knowledge-sprite-button sprite-curiosities" type="button" data-knowledge-theme="curiosities" aria-label="Abrir trilha Curiosidades">
+                    <img class="knowledge-sprite" src="assets/images/ui/curiosidades.webp" alt="">
+                </button>
+                <button class="knowledge-sprite-button sprite-wonders" type="button" data-knowledge-theme="wonders" aria-label="Abrir trilha Maravilhas do mundo">
+                    <img class="knowledge-sprite" src="assets/images/ui/maravilhas.webp" alt="">
+                </button>
+            </div>
+            <div class="header-compact">
+                <div class="header-spacer"></div>
+                <div class="header-spacer"></div>
+            </div>
+            <section class="knowledge-trail-panel hidden" id="knowledge-trail-panel" aria-live="polite">
+                <div class="knowledge-trail-copy">
+                    <span id="knowledge-trail-kicker">Trilha selecionada</span>
+                    <strong id="knowledge-trail-title">Escolha uma trilha</strong>
+                    <p id="knowledge-trail-summary">Toque em uma trilha do mapa para ver os detalhes.</p>
+                </div>
+                <div class="knowledge-trail-progress">
+                    <span>Hist&oacute;rias</span>
+                    <strong id="knowledge-trail-count">0/0</strong>
+                </div>
+                <button class="knowledge-trail-play" id="btn-play-knowledge-trail" type="button">Jogar trilha</button>
+            </section>
+        </div>
+    </template>
+
+    <template id="tpl-screen-prime-event">
+        <div id="screen-prime-event" class="screen hidden">
+            <div class="prime-shell">
+                <div class="header-compact">
+                    <button class="btn-icon" id="btn-close-prime-event" type="button" aria-label="Voltar">&larr;</button>
+                    <h2>Evento Prime</h2>
+                    <div class="header-spacer"></div>
+                </div>
+
+                <section class="prime-hero" aria-labelledby="prime-title">
+                    <div class="prime-hero-copy">
+                        <span id="prime-status">Aberto agora</span>
+                        <h3 id="prime-title">Evento Prime</h3>
+                        <p id="prime-description">O mesmo tabuleiro para todos. Ven&ccedil;a pelo menor tempo.</p>
+                    </div>
+                </section>
+
+                <section class="prime-stats" aria-label="Resumo do evento">
+                    <div>
+                        <span>Tema</span>
+                        <strong id="prime-theme">Palavras de Elite</strong>
+                    </div>
+                    <div>
+                        <span>Melhor tempo</span>
+                        <strong id="prime-best-time">--:--</strong>
+                    </div>
+                    <div>
+                        <span>Tentativas</span>
+                        <strong id="prime-attempts">0</strong>
+                    </div>
+                </section>
+
+                <button class="prime-play-btn" id="btn-start-prime-event" type="button">
+                    <span>Jogar Evento Prime</span>
+                    <strong>Speedrun</strong>
+                </button>
+
+                <section class="prime-ranking-panel" aria-labelledby="prime-ranking-title">
+                    <div class="settings-section-title">
+                        <span>Ranking Global</span>
+                        <h3 id="prime-ranking-title">Top 10</h3>
+                    </div>
+                    <div id="prime-ranking-list" class="prime-ranking-list"></div>
+                </section>
+            </div>
+        </div>
+    </template>
+
     <script type="module" src="js/app.js"></script>
 </body>
 </html>
