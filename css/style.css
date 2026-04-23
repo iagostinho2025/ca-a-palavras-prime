@@ -2328,7 +2328,7 @@ body.reduced-motion .nav-item.active img {
 }
 
 .sprite-biblical {
-    top: 173px;
+    top: 157px;
     left: 42px;
 }
 
@@ -2337,8 +2337,8 @@ body.reduced-motion .nav-item.active img {
 }
 
 .sprite-civilizations {
-    top: 208px;
-    right: 8px;
+    top: 201px;
+    right: 16px;
 }
 
 .sprite-civilizations .knowledge-sprite {
@@ -2346,8 +2346,8 @@ body.reduced-motion .nav-item.active img {
 }
 
 .sprite-curiosities {
-    top: 425px;
-    right: 36px;
+    top: 404px;
+    right: 33px;
 }
 
 .sprite-curiosities .knowledge-sprite {
@@ -2355,8 +2355,8 @@ body.reduced-motion .nav-item.active img {
 }
 
 .sprite-wonders {
-    top: 442px;
-    left: 56px;
+    top: 417px;
+    left: 52px;
 }
 
 .sprite-wonders .knowledge-sprite {
